@@ -1,4 +1,4 @@
-#define _SkimFileEvent_cxx_
+#define SkimFileEvent_cxx
 #include "SkimFileEvent.hpp"
 #include <TH2.h>
 #include <TStyle.h>
@@ -7,12 +7,12 @@
 void SkimFileEvent::Loop()
 {
 //   In a ROOT session, you can do:
-//      root> .L AnalysisEvent.C
-//      root> AnalysisEvent t
-//      root> t.GetEntry(12); // Fill t data members with entry number 12
-//      root> t.Show();       // Show values of entry 12
-//      root> t.Show(16);     // Read and show values of entry 16
-//      root> t.Loop();       // Loop on all entries
+//      Root > .L SkimFileEvent.C
+//      Root > SkimFileEvent t
+//      Root > t.GetEntry(12); // Fill t data members with entry number 12
+//      Root > t.Show();       // Show values of entry 12
+//      Root > t.Show(16);     // Read and show values of entry 16
+//      Root > t.Loop();       // Loop on all entries
 //
 
 //     This is the loop skeleton where:
@@ -41,3 +41,8 @@ void SkimFileEvent::Loop()
       // if (Cut(ientry) < 0) continue;
    }
 }
+
+float SkimFileEvent::getEventWeight(Long64_t entry){
+  return 1.;
+}
+

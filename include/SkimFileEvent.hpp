@@ -1,8 +1,7 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Fri Oct 31 15:04:52 2014 by ROOT version 6.02/01
-// from TTree tree/tree
-// found on file: /nfs/data/tZqSkims/tZq/skimFile0.root
+// Thu Jan 23 14:04:00 2014 by ROOT version 5.32/00
+// from TChain tree/
 //////////////////////////////////////////////////////////
 
 #ifndef _SkimFileEvent_hpp_
@@ -11,169 +10,169 @@
 #include <TROOT.h>
 #include <TChain.h>
 #include <TFile.h>
-
 #include <string>
+#include <TLorentzVector.h>
+#include <iostream>
 
 // Header file for the classes stored in the TTree if any.
+
+// Fixed size dimensions of array or collections stored in the TTree if any.
 
 class SkimFileEvent {
 public :
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
 
-// Fixed size dimensions of array or collections stored in the TTree if any.
-
    // Declaration of leaf types
    Int_t           numElePF2PAT;
    Int_t           numLooseElePF2PAT;
-   Float_t         elePF2PATE[7];   //[numElePF2PAT]
-   Float_t         elePF2PATET[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPX[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPY[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPZ[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhi[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTheta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATEta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPT[7];   //[numElePF2PAT]
-   Int_t           elePF2PATCharge[7];   //[numElePF2PAT]
-   Float_t         elePF2PATMVA[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpactTransDist[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpactTransError[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpactTransSignificance[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpact3DDist[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpact3DError[7];   //[numElePF2PAT]
-   Float_t         elePF2PATImpact3DSignificance[7];   //[numElePF2PAT]
-   Float_t         elePF2PATChargedHadronIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATNeutralHadronIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhotonIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackPt[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackPhi[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackEta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackChi2[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackNDOF[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackD0[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackDBD0[7];   //[numElePF2PAT]
-   Float_t         elePF2PATBeamSpotCorrectedTrackD0[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackDz[7];   //[numElePF2PAT]
-   Float_t         elePF2PATD0PV[7];   //[numElePF2PAT]
-   Float_t         elePF2PATDZPV[7];   //[numElePF2PAT]
-   Float_t         elePF2PATVtxZ[7];   //[numElePF2PAT]
-   Int_t           elePF2PATIsGsf[7];   //[numElePF2PAT]
-   Float_t         elePF2PATGsfPx[7];   //[numElePF2PAT]
-   Float_t         elePF2PATGsfPy[7];   //[numElePF2PAT]
-   Float_t         elePF2PATGsfPz[7];   //[numElePF2PAT]
-   Float_t         elePF2PATGsfE[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCEta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCE[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCPhi[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCSigmaEtaEta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCSigmaIEtaIEta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCE1x5[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCE5x5[7];   //[numElePF2PAT]
-   Float_t         elePF2PATSCE2x5max[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackIso04[7];   //[numElePF2PAT]
-   Float_t         elePF2PATEcalIso04[7];   //[numElePF2PAT]
-   Float_t         elePF2PATHcalIso04[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTrackIso03[7];   //[numElePF2PAT]
-   Float_t         elePF2PATEcalIso03[7];   //[numElePF2PAT]
-   Float_t         elePF2PATHcalIso03[7];   //[numElePF2PAT]
-   Float_t         elePF2PATdr04EcalRecHitSumEt[7];   //[numElePF2PAT]
-   Float_t         elePF2PATdr03EcalRecHitSumEt[7];   //[numElePF2PAT]
-   Float_t         elePF2PATEcalIsoDeposit[7];   //[numElePF2PAT]
-   Float_t         elePF2PATHcalIsoDeposit[7];   //[numElePF2PAT]
-   Float_t         elePF2PATComRelIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATComRelIsodBeta[7];   //[numElePF2PAT]
-   Float_t         elePF2PATComRelIsoRho[7];   //[numElePF2PAT]
-   Float_t         elePF2PATChHadIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATNtHadIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATGammaIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATRhoIso[7];   //[numElePF2PAT]
-   Float_t         elePF2PATAEff03[7];   //[numElePF2PAT]
-   //   Float_t         elePF2PATChHadIso[7];   //[numElePF2PAT]
-   Int_t           elePF2PATMissingInnerLayers[7];   //[numElePF2PAT]
-   Float_t         elePF2PATHoverE[7];   //[numElePF2PAT]
-   Float_t         elePF2PATDeltaPhiSC[7];   //[numElePF2PAT]
-   Float_t         elePF2PATDeltaEtaSC[7];   //[numElePF2PAT]
-   Int_t           elePF2PATIsBarrel[7];   //[numElePF2PAT]
-   Int_t           elePF2PATPhotonConversionTag[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhotonConversionDist[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhotonConversionDcot[7];   //[numElePF2PAT]
-   Int_t           elePF2PATPhotonConversionVeto[7];   //[numElePF2PAT]
-   Int_t           elePF2PATPhotonConversionTagCustom[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhotonConversionDistCustom[7];   //[numElePF2PAT]
-   Float_t         elePF2PATPhotonConversionDcotCustom[7];   //[numElePF2PAT]
-   Float_t         elePF2PATTriggerMatch[7];   //[numElePF2PAT]
-   Float_t         elePF2PATJetOverlap[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATET[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATPX[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATPY[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATPZ[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATPhi[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATTheta[7];   //[numElePF2PAT]
-   Float_t         genElePF2PATEta[7];   //[numElePF2PAT]
-   Int_t           genElePF2PATCharge[7];   //[numElePF2PAT]
-   Float_t         elePF2PATlooseElectronSortedEt[7];   //[numLooseElePF2PAT]
-   Float_t         elePF2PATlooseElectronSortedPt[7];   //[numLooseElePF2PAT]
-   Float_t         elePF2PATlooseElectronSortedEta[7];   //[numLooseElePF2PAT]
-   Float_t         elePF2PATlooseElectronSortedMVA[7];   //[numLooseElePF2PAT]
-   Float_t         elePF2PATlooseElectronSortedRelIso[7];   //[numLooseElePF2PAT]
+   Float_t         elePF2PATE[20];   //[numElePF2PAT]
+   Float_t         elePF2PATET[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPX[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPY[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPZ[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhi[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTheta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATEta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPT[20];   //[numElePF2PAT]
+   Int_t           elePF2PATCharge[20];   //[numElePF2PAT]
+   Float_t         elePF2PATMVA[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpactTransDist[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpactTransError[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpactTransSignificance[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpact3DDist[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpact3DError[20];   //[numElePF2PAT]
+   Float_t         elePF2PATImpact3DSignificance[20];   //[numElePF2PAT]
+   Float_t         elePF2PATChargedHadronIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATNeutralHadronIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhotonIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackPt[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackPhi[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackEta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackChi2[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackNDOF[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackD0[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackDBD0[20];   //[numElePF2PAT]
+   Float_t         elePF2PATD0PV[20];   //[numElePF2PAT]
+   Float_t         elePF2PATDZPV[20];   //[numElePF2PAT]
+   Float_t         elePF2PATBeamSpotCorrectedTrackD0[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackDz[20];   //[numElePF2PAT]
+   Float_t         elePF2PATVtxZ[20];   //[numElePF2PAT]
+   Int_t           elePF2PATIsGsf[20];   //[numElePF2PAT]
+   Float_t         elePF2PATGsfPx[20];   //[numElePF2PAT]
+   Float_t         elePF2PATGsfPy[20];   //[numElePF2PAT]
+   Float_t         elePF2PATGsfPz[20];   //[numElePF2PAT]
+   Float_t         elePF2PATGsfE[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCEta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCE[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCPhi[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCSigmaEtaEta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCSigmaIEtaIEta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCE1x5[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCE5x5[20];   //[numElePF2PAT]
+   Float_t         elePF2PATSCE2x5max[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackIso04[20];   //[numElePF2PAT]
+   Float_t         elePF2PATEcalIso04[20];   //[numElePF2PAT]
+   Float_t         elePF2PATHcalIso04[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTrackIso03[20];   //[numElePF2PAT]
+   Float_t         elePF2PATEcalIso03[20];   //[numElePF2PAT]
+   Float_t         elePF2PATHcalIso03[20];   //[numElePF2PAT]
+   Float_t         elePF2PATdr04EcalRecHitSumEt[20];   //[numElePF2PAT]
+   Float_t         elePF2PATdr03EcalRecHitSumEt[20];   //[numElePF2PAT]
+   Float_t         elePF2PATEcalIsoDeposit[20];   //[numElePF2PAT]
+   Float_t         elePF2PATHcalIsoDeposit[20];   //[numElePF2PAT]
+   Float_t         elePF2PATComRelIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATComRelIsodBeta[20];   //[numElePF2PAT]
+   Float_t         elePF2PATComRelIsoRho[20];   //[numElePF2PAT]
+   Float_t         elePF2PATChHadIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATNtHadIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATGammaIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATRhoIso[20];   //[numElePF2PAT]
+   Float_t         elePF2PATAEff03[20];   //[numElePF2PAT]
+   Int_t           elePF2PATMissingInnerLayers[20];   //[numElePF2PAT]
+   Float_t         elePF2PATHoverE[20];   //[numElePF2PAT]
+   Float_t         elePF2PATDeltaPhiSC[20];   //[numElePF2PAT]
+   Float_t         elePF2PATDeltaEtaSC[20];   //[numElePF2PAT]
+   Int_t           elePF2PATIsBarrel[20];   //[numElePF2PAT]
+   Int_t           elePF2PATPhotonConversionTag[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhotonConversionDist[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhotonConversionDcot[20];   //[numElePF2PAT]
+   Int_t           elePF2PATPhotonConversionVeto[20];   //[numElePF2PAT]
+   Int_t           elePF2PATPhotonConversionTagCustom[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhotonConversionDistCustom[20];   //[numElePF2PAT]
+   Float_t         elePF2PATPhotonConversionDcotCustom[20];   //[numElePF2PAT]
+   Float_t         elePF2PATTriggerMatch[20];   //[numElePF2PAT]
+   Float_t         elePF2PATJetOverlap[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATET[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATPX[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATPY[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATPZ[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATPhi[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATTheta[20];   //[numElePF2PAT]
+   Float_t         genElePF2PATEta[20];   //[numElePF2PAT]
+   Int_t           genElePF2PATCharge[20];   //[numElePF2PAT]
+   Float_t         elePF2PATlooseElectronSortedEt[20];   //[numLooseElePF2PAT]
+   Float_t         elePF2PATlooseElectronSortedPt[20];   //[numLooseElePF2PAT]
+   Float_t         elePF2PATlooseElectronSortedEta[20];   //[numLooseElePF2PAT]
+   Float_t         elePF2PATlooseElectronSortedMVA[20];   //[numLooseElePF2PAT]
+   Float_t         elePF2PATlooseElectronSortedRelIso[20];   //[numLooseElePF2PAT]
    Int_t           numMuonPF2PAT;
    Int_t           numLooseMuonPF2PAT;
-   Float_t         muonPF2PATE[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATET[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPt[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPX[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPY[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPZ[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPhi[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATTheta[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATEta[6];   //[numMuonPF2PAT]
-   Int_t           muonPF2PATCharge[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATGlobalID[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATTrackID[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATChi2[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATD0[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATTrackDBD0[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATDBInnerTrackD0[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATBeamSpotCorrectedD0[6];   //[numMuonPF2PAT]
-   Int_t           muonPF2PATTrackNHits[6];   //[numMuonPF2PAT]
-   Int_t           muonPF2PATMuonNHits[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATNDOF[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATVertX[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATVertY[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATVertZ[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATTkLysWithMeasurements[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATGlbTkNormChi2[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATDBPV[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATDZPV[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATVldPixHits[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATMatchedStations[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATChargedHadronIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATNeutralHadronIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATPhotonIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATTrackIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATEcalIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATHcalIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATComRelIso[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATComRelIsodBeta[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATIsPFMuon[6];   //[numMuonPF2PAT]
-   Int_t           muonPF2PATNChambers[6];   //[numMuonPF2PAT]
-   Int_t           muonPF2PATNMatches[6];   //[numMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedEt[6];   //[numLooseMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedPt[6];   //[numLooseMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedEta[6];   //[numLooseMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedRelIso[6];   //[numLooseMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedisGlb[6];   //[numLooseMuonPF2PAT]
-   Float_t         muonPF2PATlooseMuonSortedisTrk[6];   //[numLooseMuonPF2PAT]
-   Float_t         genMuonPF2PATET[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATPX[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATPY[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATPZ[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATPhi[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATTheta[6];   //[numMuonPF2PAT]
-   Float_t         genMuonPF2PATEta[6];   //[numMuonPF2PAT]
-   Int_t           genMuonPF2PATCharge[6];   //[numMuonPF2PAT]
-   Int_t           numJetPF2PAT;// Number of jets (multiplicity - not what we are interested - what we get direct out of CMSSW - mainly flucs and detector effects)
+   Float_t         muonPF2PATE[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATET[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPt[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPX[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPY[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPZ[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPhi[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATTheta[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATEta[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATCharge[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATGlobalID[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATTrackID[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATChi2[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATD0[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATTrackDBD0[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATDBInnerTrackD0[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATBeamSpotCorrectedD0[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATTrackNHits[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATMuonNHits[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATNDOF[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATVertX[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATVertY[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATVertZ[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATChargedHadronIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATNeutralHadronIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATPhotonIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATTrackIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATEcalIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATHcalIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATComRelIso[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATComRelIsodBeta[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATIsPFMuon[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATNChambers[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATNMatches[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATTkLysWithMeasurements[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATVldPixHits[20];   //[numMuonPF2PAT]
+   Int_t           muonPF2PATMatchedStations[20];   //[numMuonPF2PAT]
+   Float_t         muonPF2PATGlbTkNormChi2[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATDBPV[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATDZPV[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedEt[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedPt[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedEta[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedRelIso[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedisGlb[20];   //[numLooseMuonPF2PAT]
+   Float_t         muonPF2PATlooseMuonSortedisTrk[20];   //[numLooseMuonPF2PAT]
+   Float_t         genMuonPF2PATET[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATPX[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATPY[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATPZ[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATPhi[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATTheta[20];   //[numMuonPF2PAT]
+   Float_t         genMuonPF2PATEta[20];   //[numMuonPF2PAT]
+   Int_t           genMuonPF2PATCharge[20];   //[numMuonPF2PAT]
+   Int_t           numJetPF2PAT;
    Double_t        jetPF2PATE[40];   //[numJetPF2PAT]
    Double_t        jetPF2PATEt[40];   //[numJetPF2PAT]
    Double_t        jetPF2PATPt[40];   //[numJetPF2PAT]
@@ -257,8 +256,8 @@ public :
    Float_t         jetPF2PATNeutralHadronEnergyFractionCorr[40];   //[numJetPF2PAT]
    Float_t         jetPF2PATChargedEmEnergyFractionCorr[40];   //[numJetPF2PAT]
    Float_t         jetPF2PATNeutralEmEnergyFractionCorr[40];   //[numJetPF2PAT]
-   Int_t           jetPF2PATNeutralMultiplicity[40];   //[numJetPF2PAT]				// # Clusters making up jet without tracks associated with them - isolation/jet ID
-   Int_t           jetPF2PATChargedMultiplicity[40];   //[numJetPF2PAT]				// # Clusters making up jet with tracks associated with them
+   Int_t           jetPF2PATNeutralMultiplicity[40];   //[numJetPF2PAT]
+   Int_t           jetPF2PATChargedMultiplicity[40];   //[numJetPF2PAT]
    Double_t        metPF2PATEt;
    Double_t        metPF2PATEtRaw;
    Double_t        metPF2PATPhi;
@@ -291,14 +290,12 @@ public :
    Float_t         genPDFx2;
    Int_t           genPDFf1;
    Int_t           genPDFf2;
-   Double_t        topPtReweight;
    Int_t           processId;
    Float_t         processPtHat;
    Double_t        processMCWeight;
    Float_t         beamSpotX;
    Float_t         beamSpotY;
    Float_t         beamSpotZ;
-   Int_t           numPv;
    Float_t         pvX;
    Float_t         pvY;
    Float_t         pvZ;
@@ -317,10 +314,10 @@ public :
    Float_t         mhtSignif;
    Int_t           nTriggerBits;
    Int_t           TriggerBits[1];   //[nTriggerBits]
-   Int_t           numVert;
    Double_t        PileUpWeightRunA;
    Double_t        PileUpWeightRunB;
    Double_t        PileUpWeightRunC;
+   //   Int_t           numVert;
    Int_t           HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v12;
    Int_t           HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v13;
    Int_t           HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v14;
@@ -347,18 +344,16 @@ public :
    Int_t           HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7;
    Int_t           HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8;
    Int_t           HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9;
-   Int_t           HLT_Mu17_Mu8_v13;
-   Int_t           HLT_Mu17_Mu8_v14;
-   Int_t           HLT_Mu17_Mu8_v15;
    Int_t           HLT_Mu17_Mu8_v16;
    Int_t           HLT_Mu17_Mu8_v17;
    Int_t           HLT_Mu17_Mu8_v18;
    Int_t           HLT_Mu17_Mu8_v19;
-   //   Int_t           HLT_Mu17_Mu8_v15;
-   //   Int_t           HLT_Mu17_Mu8_v14;
    Int_t           HLT_Mu17_Mu8_v20;
    Int_t           HLT_Mu17_Mu8_v21;
    Int_t           HLT_Mu17_Mu8_v22;
+   Int_t           HLT_Mu17_Mu8_v15;
+   Int_t           HLT_Mu17_Mu8_v14;
+   Int_t           HLT_Mu17_Mu8_v13;
    Int_t           HLT_Mu17_TkMu8_v6;
    Int_t           HLT_Mu17_TkMu8_v7;
    Int_t           HLT_Mu17_TkMu8_v8;
@@ -368,25 +363,27 @@ public :
    Int_t           HLT_Mu17_TkMu8_v12;
    Int_t           HLT_Mu17_TkMu8_v13;
    Int_t           HLT_Mu17_TkMu8_v14;
+
+   //MC Triggers
    Int_t           HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_v9;
    Int_t           HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_v9;
    Int_t           HLT_Mu17_Mu8_v12;
    Int_t           HLT_Mu17_TkMu8_v5;
    Int_t           HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11;
+
+   //Gen info
    Int_t           nGenPar;
-   Float_t         genParEta[14];   //[nGenPar]
-   Float_t         genParPhi[14];   //[nGenPar]
-   Float_t         genParE[14];   //[nGenPar]
-   Float_t         genParPt[14];   //[nGenPar]
-   Int_t           genParId[14];   //[nGenPar]
-   Int_t	   genParNumMothers[14];	//[nGenPar] - 150320 - ADM - # of mothers for gen level particle
-   Int_t	   genParMotherId[14];	//[nGenPar] - 150320 - ADM - Mother pid for gen level particle
-   Int_t	   genParNumDaughters[14];	///[nGenPar] - 150401 - ADM - # of daughters for gen level particle
-   Int_t           genParCharge[14];   //[nGenPar]
+   Float_t         genParEta[30];   //[nGenPar]
+   Float_t         genParPhi[30];   //[nGenPar]
+   Float_t         genParE[30];   //[nGenPar]
+   Float_t         genParPt[30];   //[nGenPar]
+   Int_t           genParId[30];   //[nGenPar]
+   Int_t           genParCharge[30];   //[nGenPar]
    Int_t           eventRun;
    Int_t           eventNum;
    Float_t         eventLumiblock;
    Float_t         eventWeight;
+
 
    // List of branches
    TBranch        *b_numElePF2PAT;   //!
@@ -418,10 +415,10 @@ public :
    TBranch        *b_elePF2PATTrackNDOF;   //!
    TBranch        *b_elePF2PATTrackD0;   //!
    TBranch        *b_elePF2PATTrackDBD0;   //!
-   TBranch        *b_elePF2PATBeamSpotCorrectedTrackD0;   //!
-   TBranch        *b_elePF2PATTrackDz;   //!
    TBranch        *b_elePF2PATD0PV;   //!
    TBranch        *b_elePF2PATDZPV;   //!
+   TBranch        *b_elePF2PATBeamSpotCorrectedTrackD0;   //!
+   TBranch        *b_elePF2PATTrackDz;   //!
    TBranch        *b_elePF2PATVtxZ;   //!
    TBranch        *b_elePF2PATIsGsf;   //!
    TBranch        *b_elePF2PATGsfPx;   //!
@@ -454,7 +451,6 @@ public :
    TBranch        *b_elePF2PATGammaIso;   //!
    TBranch        *b_elePF2PATRhoIso;   //!
    TBranch        *b_elePF2PATAEff03;   //!
-   //   TBranch        *b_elePF2PATChHadIso;   //!
    TBranch        *b_elePF2PATMissingInnerLayers;   //!
    TBranch        *b_elePF2PATHoverE;   //!
    TBranch        *b_elePF2PATDeltaPhiSC;   //!
@@ -507,12 +503,6 @@ public :
    TBranch        *b_muonPF2PATVertX;   //!
    TBranch        *b_muonPF2PATVertY;   //!
    TBranch        *b_muonPF2PATVertZ;   //!
-   TBranch        *b_muonPF2PATTkLysWithMeasurements;   //!
-   TBranch        *b_muonPF2PATGlbTkNormChi2;   //!
-   TBranch        *b_muonPF2PATDBPV;   //!
-   TBranch        *b_muonPF2PATDZPV;   //!
-   TBranch        *b_muonPF2PATVldPixHits;   //!
-   TBranch        *b_muonPF2PATMatchedStations;   //!
    TBranch        *b_muonPF2PATChargedHadronIso;   //!
    TBranch        *b_muonPF2PATNeutralHadronIso;   //!
    TBranch        *b_muonPF2PATPhotonIso;   //!
@@ -524,6 +514,12 @@ public :
    TBranch        *b_muonPF2PATIsPFMuon;   //!
    TBranch        *b_muonPF2PATNChambers;   //!
    TBranch        *b_muonPF2PATNMatches;   //!
+   TBranch        *b_muonPF2PATTkLysWithMeasurements;   //!
+   TBranch        *b_muonPF2PATVldPixHits;   //!
+   TBranch        *b_muonPF2PATMatchedStations;   //!
+   TBranch        *b_muonPF2PATGlbTkNormChi2;   //!
+   TBranch        *b_muonPF2PATDBPV;   //!
+   TBranch        *b_muonPF2PATDZPV;   //!
    TBranch        *b_muonPF2PATlooseMuonSortedEt;   //!
    TBranch        *b_muonPF2PATlooseMuonSortedPt;   //!
    TBranch        *b_muonPF2PATlooseMuonSortedEta;   //!
@@ -656,14 +652,12 @@ public :
    TBranch        *b_genPDFx2;   //!
    TBranch        *b_genPDFf1;   //!
    TBranch        *b_genPDFf2;   //!
-   TBranch        *b_topPtReweight;   //!
    TBranch        *b_processId;   //!
    TBranch        *b_processPtHat;   //!
    TBranch        *b_processMCWeight;   //!
    TBranch        *b_beamSpotX;   //!
    TBranch        *b_beamSpotY;   //!
    TBranch        *b_beamSpotZ;   //!
-   TBranch        *b_numPv;   //!
    TBranch        *b_pvX;   //!
    TBranch        *b_pvY;   //!
    TBranch        *b_pvZ;   //!
@@ -682,10 +676,8 @@ public :
    TBranch        *b_mhtSignif;   //!
    TBranch        *b_nTriggerBits;   //!
    TBranch        *b_TriggerBits;   //!
-   TBranch        *b_numVert;   //!
    TBranch        *b_pileUpWeight;   //!
-   //   TBranch        *b_pileUpWeight;   //!
-   //   TBranch        *b_pileUpWeight;   //!
+   //   TBranch        *b_numVert;    //!
    TBranch        *b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v12;   //!
    TBranch        *b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v13;   //!
    TBranch        *b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v14;   //!
@@ -719,8 +711,6 @@ public :
    TBranch        *b_HLT_Mu17_Mu8_v17;   //!
    TBranch        *b_HLT_Mu17_Mu8_v18;   //!
    TBranch        *b_HLT_Mu17_Mu8_v19;   //!
-   //   TBranch        *b_HLT_Mu17_Mu8_v15;   //!
-   //   TBranch        *b_HLT_Mu17_Mu8_v14;   //!
    TBranch        *b_HLT_Mu17_Mu8_v20;   //!
    TBranch        *b_HLT_Mu17_Mu8_v21;   //!
    TBranch        *b_HLT_Mu17_Mu8_v22;   //!
@@ -744,44 +734,207 @@ public :
    TBranch        *b_genParE;   //!
    TBranch        *b_genParPt;   //!
    TBranch        *b_genParId;   //!
-   TBranch        *b_genParNumMothers; // 150320 - ADM - # of mothers for gen level particle
-   TBranch        *b_genParMotherId; // 150320 - ADM - Mother pid for gen level particle
-   TBranch	  *b_genParNumDaughters; // 150401 - ADM - # of daughters for gen level particle
    TBranch        *b_genParCharge;   //!
    TBranch        *b_eventRun;   //!
    TBranch        *b_eventNum;   //!
    TBranch        *b_eventLumiblock;   //!
    TBranch        *b_eventWeight;
 
-   SkimFileEvent(TTree *tree=0);
+
+   std::vector<int> electronIndexTight;
+   std::vector<int> electronIndexLoose;
+   std::vector<int> muonIndexTight;
+   std::vector<int> muonIndexLoose;
+   std::vector<int> jetIndex;
+   std::vector<int> bTagIndex; 
+   std::pair<TLorentzVector,TLorentzVector> zPairLeptons;
+   std::pair<float,float> zPairRelIso;
+   std::pair<int,int> zPairIndex; 
+   TLorentzVector wLepton;
+   int wLepIndex;
+   float wLeptonRelIso;
+   Int_t numVert;
+   TBranch * b_numVert;
+
+   SkimFileEvent(TTree *tree=0, bool isMC = true);
    virtual ~SkimFileEvent();
    virtual Int_t    Cut(Long64_t entry);
    virtual Int_t    GetEntry(Long64_t entry);
    virtual Long64_t LoadTree(Long64_t entry);
-   virtual void     Init(TTree *tree);
+   virtual void     Init(TTree *tree, bool isMC);
    virtual void     Loop();
    virtual Bool_t   Notify();
    virtual void     Show(Long64_t entry = -1);
+   float getEventWeight(Long64_t entry);
 };
 
 #endif
 
 #ifdef SkimFileEvent_cxx
-SkimFileEvent::SkimFileEvent(TTree *tree) : fChain(0) 
+SkimFileEvent::SkimFileEvent(TTree *tree, bool isMC) : fChain(0) 
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
-   if (tree == 0) 
-     {
-       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/nfs/data/tZqSkims/tZq/skimFile0.root");
-       if (!f || !f->IsOpen()) 
-	 {
-	   f = new TFile("/nfs/data/tZqSkims/tZq/skimFile0.root");
-	 }
+   if (tree == 0) {
+
+#ifdef SINGLE_TREE
+      // The following code should be used if you want this class to access
+      // a single tree instead of a chain
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_9_0_MJP_skim.root");
+      if (!f || !f->IsOpen()) {
+         f = new TFile("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_9_0_MJP_skim.root");
+      }
       f->GetObject("tree",tree);
 
-      }
-   Init(tree);
+#else // SINGLE_TREE
+
+      // The following code should be used if you want this class to access a chain
+      // of trees.
+      TChain * chain = new TChain("tree","");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_100_0_Gu6_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_101_0_CCe_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_102_0_10I_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_103_0_OgH_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_104_0_Nzk_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_105_0_iJR_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_106_0_tN9_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_107_0_h2Y_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_108_0_hBb_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_109_0_UEL_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_10_0_Ib1_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_110_0_V1q_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_111_0_n74_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_112_0_hBx_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_113_0_WeN_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_114_0_KaM_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_115_0_aRw_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_116_0_3pE_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_117_0_gJ7_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_118_0_mdM_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_119_0_YT2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_11_0_bm4_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_120_0_E3n_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_121_0_XdE_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_122_0_uZf_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_123_0_4GT_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_124_0_sDL_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_125_0_XCl_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_126_0_Hy1_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_127_0_b4J_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_128_0_o4T_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_129_0_N37_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_12_0_z2F_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_130_0_aU1_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_131_0_PdR_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_132_0_xFc_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_133_0_ne2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_134_0_E9S_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_135_0_I03_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_136_0_IN2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_137_0_Uqj_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_138_0_kas_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_139_0_Tcm_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_13_0_QjC_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_140_0_nU2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_14_0_HCk_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_15_0_Tgc_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_16_0_0LI_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_17_1_Kxc_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_18_0_8Y8_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_19_0_EVu_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_1_1_e4c_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_20_0_pdV_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_21_1_hD4_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_22_0_KYU_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_23_0_yFZ_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_24_0_82B_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_25_4_iUG_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_26_0_pQ6_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_27_1_P51_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_28_0_K6r_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_29_0_Rkn_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_2_1_L0i_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_30_0_a9x_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_31_0_LG5_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_32_1_uRU_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_33_0_xP0_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_34_0_hCV_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_35_0_9n9_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_36_0_FAp_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_37_0_ST3_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_38_0_JeX_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_39_0_3aN_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_3_1_2ED_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_40_1_Dlo_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_41_0_kJO_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_42_0_NPy_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_43_0_pSx_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_44_0_efb_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_45_0_rj2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_46_0_t0y_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_48_0_bFb_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_49_0_hFD_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_4_1_gY0_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_50_0_mOO_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_51_0_Tvz_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_52_0_Qyu_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_53_0_tnv_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_54_1_BWs_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_55_0_5I2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_56_1_VTy_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_57_0_JtC_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_58_0_V1s_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_59_1_kJJ_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_5_0_ARX_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_60_0_d9h_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_61_1_4bi_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_62_0_Awp_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_63_0_NZJ_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_64_0_l4R_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_65_0_Xcp_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_66_0_msr_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_67_1_qQe_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_68_0_NNV_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_69_0_MmH_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_6_0_eIW_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_70_0_xdw_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_71_0_m7u_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_72_0_rIz_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_73_0_nnp_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_74_0_ai2_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_75_0_qBL_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_76_0_jS5_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_77_0_LlI_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_78_0_iIw_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_79_0_8BG_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_7_1_Tzw_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_80_0_sbp_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_81_0_kfW_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_82_0_OL9_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_83_0_4xd_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_84_0_92G_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_85_0_PbM_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_86_0_c6m_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_87_0_WGZ_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_88_0_8HI_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_89_0_Hjw_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_8_0_gZh_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_90_0_Aed_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_91_0_hOn_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_92_0_4zD_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_93_0_DHy_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_94_0_4l8_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_95_0_t8O_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_96_0_As6_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_97_0_zCu_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_98_0_mn7_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_99_0_Q1y_skim.root/tree");
+      chain->Add("/data1/tW2012/mc/ttbarInclusive/MC_Ntuple_out_9_0_MJP_skim.root/tree");
+      tree = chain;
+#endif // SINGLE_TREE
+
+   }
+   Init(tree,isMC);
 }
 
 SkimFileEvent::~SkimFileEvent()
@@ -809,7 +962,7 @@ Long64_t SkimFileEvent::LoadTree(Long64_t entry)
    return centry;
 }
 
-void SkimFileEvent::Init(TTree *tree)
+void SkimFileEvent::Init(TTree *tree, bool isMC)
 {
    // The Init() function is called when the selector needs to initialize
    // a new tree or chain. Typically here the branch addresses and branch
@@ -854,10 +1007,10 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("elePF2PATTrackNDOF", elePF2PATTrackNDOF, &b_elePF2PATTrackNDOF);
    fChain->SetBranchAddress("elePF2PATTrackD0", elePF2PATTrackD0, &b_elePF2PATTrackD0);
    fChain->SetBranchAddress("elePF2PATTrackDBD0", elePF2PATTrackDBD0, &b_elePF2PATTrackDBD0);
-   fChain->SetBranchAddress("elePF2PATBeamSpotCorrectedTrackD0", elePF2PATBeamSpotCorrectedTrackD0, &b_elePF2PATBeamSpotCorrectedTrackD0);
-   fChain->SetBranchAddress("elePF2PATTrackDz", elePF2PATTrackDz, &b_elePF2PATTrackDz);
    fChain->SetBranchAddress("elePF2PATD0PV", elePF2PATD0PV, &b_elePF2PATD0PV);
    fChain->SetBranchAddress("elePF2PATDZPV", elePF2PATDZPV, &b_elePF2PATDZPV);
+   fChain->SetBranchAddress("elePF2PATBeamSpotCorrectedTrackD0", elePF2PATBeamSpotCorrectedTrackD0, &b_elePF2PATBeamSpotCorrectedTrackD0);
+   fChain->SetBranchAddress("elePF2PATTrackDz", elePF2PATTrackDz, &b_elePF2PATTrackDz);
    fChain->SetBranchAddress("elePF2PATVtxZ", elePF2PATVtxZ, &b_elePF2PATVtxZ);
    fChain->SetBranchAddress("elePF2PATIsGsf", elePF2PATIsGsf, &b_elePF2PATIsGsf);
    fChain->SetBranchAddress("elePF2PATGsfPx", elePF2PATGsfPx, &b_elePF2PATGsfPx);
@@ -890,7 +1043,6 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("elePF2PATGammaIso", elePF2PATGammaIso, &b_elePF2PATGammaIso);
    fChain->SetBranchAddress("elePF2PATRhoIso", elePF2PATRhoIso, &b_elePF2PATRhoIso);
    fChain->SetBranchAddress("elePF2PATAEff03", elePF2PATAEff03, &b_elePF2PATAEff03);
-//    fChain->SetBranchAddress("elePF2PATChHadIso", elePF2PATChHadIso, &b_elePF2PATChHadIso);
    fChain->SetBranchAddress("elePF2PATMissingInnerLayers", elePF2PATMissingInnerLayers, &b_elePF2PATMissingInnerLayers);
    fChain->SetBranchAddress("elePF2PATHoverE", elePF2PATHoverE, &b_elePF2PATHoverE);
    fChain->SetBranchAddress("elePF2PATDeltaPhiSC", elePF2PATDeltaPhiSC, &b_elePF2PATDeltaPhiSC);
@@ -905,14 +1057,16 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("elePF2PATPhotonConversionDcotCustom", elePF2PATPhotonConversionDcotCustom, &b_elePF2PATPhotonConversionDcotCustom);
    fChain->SetBranchAddress("elePF2PATTriggerMatch", elePF2PATTriggerMatch, &b_elePF2PATTriggerMatch);
    fChain->SetBranchAddress("elePF2PATJetOverlap", elePF2PATJetOverlap, &b_elePF2PATJetOverlap);
-   fChain->SetBranchAddress("genElePF2PATET", genElePF2PATET, &b_genElePF2PATET);
-   fChain->SetBranchAddress("genElePF2PATPX", genElePF2PATPX, &b_genElePF2PATPX);
-   fChain->SetBranchAddress("genElePF2PATPY", genElePF2PATPY, &b_genElePF2PATPY);
-   fChain->SetBranchAddress("genElePF2PATPZ", genElePF2PATPZ, &b_genElePF2PATPZ);
-   fChain->SetBranchAddress("genElePF2PATPhi", genElePF2PATPhi, &b_genElePF2PATPhi);
-   fChain->SetBranchAddress("genElePF2PATTheta", genElePF2PATTheta, &b_genElePF2PATTheta);
-   fChain->SetBranchAddress("genElePF2PATEta", genElePF2PATEta, &b_genElePF2PATEta);
-   fChain->SetBranchAddress("genElePF2PATCharge", genElePF2PATCharge, &b_genElePF2PATCharge);
+   if (isMC) { 
+     fChain->SetBranchAddress("genElePF2PATET", genElePF2PATET, &b_genElePF2PATET);
+     fChain->SetBranchAddress("genElePF2PATPX", genElePF2PATPX, &b_genElePF2PATPX);
+     fChain->SetBranchAddress("genElePF2PATPY", genElePF2PATPY, &b_genElePF2PATPY);
+     fChain->SetBranchAddress("genElePF2PATPZ", genElePF2PATPZ, &b_genElePF2PATPZ);
+     fChain->SetBranchAddress("genElePF2PATPhi", genElePF2PATPhi, &b_genElePF2PATPhi);
+     fChain->SetBranchAddress("genElePF2PATTheta", genElePF2PATTheta, &b_genElePF2PATTheta);
+     fChain->SetBranchAddress("genElePF2PATEta", genElePF2PATEta, &b_genElePF2PATEta);
+     fChain->SetBranchAddress("genElePF2PATCharge", genElePF2PATCharge, &b_genElePF2PATCharge);
+   }
    fChain->SetBranchAddress("elePF2PATlooseElectronSortedEt", elePF2PATlooseElectronSortedEt, &b_elePF2PATlooseElectronSortedEt);
    fChain->SetBranchAddress("elePF2PATlooseElectronSortedPt", elePF2PATlooseElectronSortedPt, &b_elePF2PATlooseElectronSortedPt);
    fChain->SetBranchAddress("elePF2PATlooseElectronSortedEta", elePF2PATlooseElectronSortedEta, &b_elePF2PATlooseElectronSortedEta);
@@ -943,12 +1097,6 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("muonPF2PATVertX", muonPF2PATVertX, &b_muonPF2PATVertX);
    fChain->SetBranchAddress("muonPF2PATVertY", muonPF2PATVertY, &b_muonPF2PATVertY);
    fChain->SetBranchAddress("muonPF2PATVertZ", muonPF2PATVertZ, &b_muonPF2PATVertZ);
-   fChain->SetBranchAddress("muonPF2PATTkLysWithMeasurements", muonPF2PATTkLysWithMeasurements, &b_muonPF2PATTkLysWithMeasurements);
-   fChain->SetBranchAddress("muonPF2PATGlbTkNormChi2", muonPF2PATGlbTkNormChi2, &b_muonPF2PATGlbTkNormChi2);
-   fChain->SetBranchAddress("muonPF2PATDBPV", muonPF2PATDBPV, &b_muonPF2PATDBPV);
-   fChain->SetBranchAddress("muonPF2PATDZPV", muonPF2PATDZPV, &b_muonPF2PATDZPV);
-   fChain->SetBranchAddress("muonPF2PATVldPixHits", muonPF2PATVldPixHits, &b_muonPF2PATVldPixHits);
-   fChain->SetBranchAddress("muonPF2PATMatchedStations", muonPF2PATMatchedStations, &b_muonPF2PATMatchedStations);
    fChain->SetBranchAddress("muonPF2PATChargedHadronIso", muonPF2PATChargedHadronIso, &b_muonPF2PATChargedHadronIso);
    fChain->SetBranchAddress("muonPF2PATNeutralHadronIso", muonPF2PATNeutralHadronIso, &b_muonPF2PATNeutralHadronIso);
    fChain->SetBranchAddress("muonPF2PATPhotonIso", muonPF2PATPhotonIso, &b_muonPF2PATPhotonIso);
@@ -960,20 +1108,28 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("muonPF2PATIsPFMuon", muonPF2PATIsPFMuon, &b_muonPF2PATIsPFMuon);
    fChain->SetBranchAddress("muonPF2PATNChambers", muonPF2PATNChambers, &b_muonPF2PATNChambers);
    fChain->SetBranchAddress("muonPF2PATNMatches", muonPF2PATNMatches, &b_muonPF2PATNMatches);
+   fChain->SetBranchAddress("muonPF2PATTkLysWithMeasurements", muonPF2PATTkLysWithMeasurements, &b_muonPF2PATTkLysWithMeasurements);
+   fChain->SetBranchAddress("muonPF2PATGlbTkNormChi2", muonPF2PATGlbTkNormChi2, &b_muonPF2PATGlbTkNormChi2);
+   fChain->SetBranchAddress("muonPF2PATDBPV", muonPF2PATDBPV, &b_muonPF2PATDBPV);
+   fChain->SetBranchAddress("muonPF2PATDZPV", muonPF2PATDZPV, &b_muonPF2PATDZPV);
+   fChain->SetBranchAddress("muonPF2PATVldPixHits", muonPF2PATVldPixHits, &b_muonPF2PATVldPixHits);
+   fChain->SetBranchAddress("muonPF2PATMatchedStations", muonPF2PATMatchedStations, &b_muonPF2PATMatchedStations);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedEt", muonPF2PATlooseMuonSortedEt, &b_muonPF2PATlooseMuonSortedEt);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedPt", muonPF2PATlooseMuonSortedPt, &b_muonPF2PATlooseMuonSortedPt);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedEta", muonPF2PATlooseMuonSortedEta, &b_muonPF2PATlooseMuonSortedEta);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedRelIso", muonPF2PATlooseMuonSortedRelIso, &b_muonPF2PATlooseMuonSortedRelIso);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedisGlb", muonPF2PATlooseMuonSortedisGlb, &b_muonPF2PATlooseMuonSortedisGlb);
    fChain->SetBranchAddress("muonPF2PATlooseMuonSortedisTrk", muonPF2PATlooseMuonSortedisTrk, &b_muonPF2PATlooseMuonSortedisTrk);
-   fChain->SetBranchAddress("genMuonPF2PATET", genMuonPF2PATET, &b_genMuonPF2PATET);
-   fChain->SetBranchAddress("genMuonPF2PATPX", genMuonPF2PATPX, &b_genMuonPF2PATPX);
-   fChain->SetBranchAddress("genMuonPF2PATPY", genMuonPF2PATPY, &b_genMuonPF2PATPY);
-   fChain->SetBranchAddress("genMuonPF2PATPZ", genMuonPF2PATPZ, &b_genMuonPF2PATPZ);
-   fChain->SetBranchAddress("genMuonPF2PATPhi", genMuonPF2PATPhi, &b_genMuonPF2PATPhi);
-   fChain->SetBranchAddress("genMuonPF2PATTheta", genMuonPF2PATTheta, &b_genMuonPF2PATTheta);
-   fChain->SetBranchAddress("genMuonPF2PATEta", genMuonPF2PATEta, &b_genMuonPF2PATEta);
-   fChain->SetBranchAddress("genMuonPF2PATCharge", genMuonPF2PATCharge, &b_genMuonPF2PATCharge);
+   if (isMC) {
+     fChain->SetBranchAddress("genMuonPF2PATET", genMuonPF2PATET, &b_genMuonPF2PATET);
+     fChain->SetBranchAddress("genMuonPF2PATPX", genMuonPF2PATPX, &b_genMuonPF2PATPX);
+     fChain->SetBranchAddress("genMuonPF2PATPY", genMuonPF2PATPY, &b_genMuonPF2PATPY);
+     fChain->SetBranchAddress("genMuonPF2PATPZ", genMuonPF2PATPZ, &b_genMuonPF2PATPZ);
+     fChain->SetBranchAddress("genMuonPF2PATPhi", genMuonPF2PATPhi, &b_genMuonPF2PATPhi);
+     fChain->SetBranchAddress("genMuonPF2PATTheta", genMuonPF2PATTheta, &b_genMuonPF2PATTheta);
+     fChain->SetBranchAddress("genMuonPF2PATEta", genMuonPF2PATEta, &b_genMuonPF2PATEta);
+     fChain->SetBranchAddress("genMuonPF2PATCharge", genMuonPF2PATCharge, &b_genMuonPF2PATCharge);
+   }
    fChain->SetBranchAddress("numJetPF2PAT", &numJetPF2PAT, &b_numJetPF2PAT);
    fChain->SetBranchAddress("jetPF2PATE", jetPF2PATE, &b_jetPF2PATE);
    fChain->SetBranchAddress("jetPF2PATEt", jetPF2PATEt, &b_jetPF2PATEt);
@@ -1021,15 +1177,17 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("jetPF2PATPID", jetPF2PATPID, &b_jetPF2PATPID);
    fChain->SetBranchAddress("jetPF2PATClosestBPartonDeltaR", jetPF2PATClosestBPartonDeltaR, &b_jetPF2PATClosestBPartonDeltaR);
    fChain->SetBranchAddress("jetPF2PATClosestCPartonDeltaR", jetPF2PATClosestCPartonDeltaR, &b_jetPF2PATClosestCPartonDeltaR);
-   fChain->SetBranchAddress("genJetPF2PATET", genJetPF2PATET, &b_genJetPF2PATET);
-   fChain->SetBranchAddress("genJetPF2PATPT", genJetPF2PATPT, &b_genJetPF2PATPT);
-   fChain->SetBranchAddress("genJetPF2PATPX", genJetPF2PATPX, &b_genJetPF2PATPX);
-   fChain->SetBranchAddress("genJetPF2PATPY", genJetPF2PATPY, &b_genJetPF2PATPY);
-   fChain->SetBranchAddress("genJetPF2PATPZ", genJetPF2PATPZ, &b_genJetPF2PATPZ);
-   fChain->SetBranchAddress("genJetPF2PATPhi", genJetPF2PATPhi, &b_genJetPF2PATPhi);
-   fChain->SetBranchAddress("genJetPF2PATTheta", genJetPF2PATTheta, &b_genJetPF2PATTheta);
-   fChain->SetBranchAddress("genJetPF2PATEta", genJetPF2PATEta, &b_genJetPF2PATEta);
-   fChain->SetBranchAddress("genJetPF2PATPID", genJetPF2PATPID, &b_genJetPF2PATPID);
+   if (isMC) {
+     fChain->SetBranchAddress("genJetPF2PATET", genJetPF2PATET, &b_genJetPF2PATET);
+     fChain->SetBranchAddress("genJetPF2PATPT", genJetPF2PATPT, &b_genJetPF2PATPT);
+     fChain->SetBranchAddress("genJetPF2PATPX", genJetPF2PATPX, &b_genJetPF2PATPX);
+     fChain->SetBranchAddress("genJetPF2PATPY", genJetPF2PATPY, &b_genJetPF2PATPY);
+     fChain->SetBranchAddress("genJetPF2PATPZ", genJetPF2PATPZ, &b_genJetPF2PATPZ);
+     fChain->SetBranchAddress("genJetPF2PATPhi", genJetPF2PATPhi, &b_genJetPF2PATPhi);
+     fChain->SetBranchAddress("genJetPF2PATTheta", genJetPF2PATTheta, &b_genJetPF2PATTheta);
+     fChain->SetBranchAddress("genJetPF2PATEta", genJetPF2PATEta, &b_genJetPF2PATEta);
+     fChain->SetBranchAddress("genJetPF2PATPID", genJetPF2PATPID, &b_genJetPF2PATPID);
+   }
    fChain->SetBranchAddress("numLooseJetPF2PAT", &numLooseJetPF2PAT, &b_numLooseBJetsPF2PAT);
    fChain->SetBranchAddress("looseJetPF2PATEt", looseJetPF2PATEt, &b_looseJetPF2PATEt);
    fChain->SetBranchAddress("looseJetPF2PATPt", looseJetPF2PATPt, &b_looseJetPF2PATPt);
@@ -1069,11 +1227,13 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("metPF2PATScalarEt", &metPF2PATScalarEt, &b_metPF2PATScalarEt);
    fChain->SetBranchAddress("metPF2PATEtUncorrected", &metPF2PATEtUncorrected, &b_metPF2PATEtUncorrected);
    fChain->SetBranchAddress("metPF2PATPhiUncorrected", &metPF2PATPhiUncorrected, &b_metPF2PATPhiUncorrected);
-   fChain->SetBranchAddress("genMetPF2PATEt", &genMetPF2PATEt, &b_genMetPF2PATEt);
-   fChain->SetBranchAddress("genMetPF2PATPhi", &genMetPF2PATPhi, &b_genMetPF2PATPhi);
-   fChain->SetBranchAddress("genMetPF2PATPt", &genMetPF2PATPt, &b_genMetPF2PATPt);
-   fChain->SetBranchAddress("genMetPF2PATPx", &genMetPF2PATPx, &b_genMetPF2PATPx);
-   fChain->SetBranchAddress("genMetPF2PATPy", &genMetPF2PATPy, &b_genMetPF2PATPy);
+   if (isMC) {
+     fChain->SetBranchAddress("genMetPF2PATEt", &genMetPF2PATEt, &b_genMetPF2PATEt);
+     fChain->SetBranchAddress("genMetPF2PATPhi", &genMetPF2PATPhi, &b_genMetPF2PATPhi);
+     fChain->SetBranchAddress("genMetPF2PATPt", &genMetPF2PATPt, &b_genMetPF2PATPt);
+     fChain->SetBranchAddress("genMetPF2PATPx", &genMetPF2PATPx, &b_genMetPF2PATPx);
+     fChain->SetBranchAddress("genMetPF2PATPy", &genMetPF2PATPy, &b_genMetPF2PATPy);
+   }
    fChain->SetBranchAddress("numTauPF2PAT", &numTauPF2PAT, &b_numTauPF2PAT);
    fChain->SetBranchAddress("tauPF2PATE", &tauPF2PATE, &b_tauPF2PATE);
    fChain->SetBranchAddress("tauPF2PATPt", &tauPF2PATPt, &b_tauPF2PATPt);
@@ -1086,20 +1246,20 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("generalTracksBeamSpotCorrectedD0", generalTracksBeamSpotCorrectedD0, &b_generalTracksBeamSpotCorrectedD0);
    fChain->SetBranchAddress("generalTracksPhi", generalTracksPhi, &b_generalTracksPhi);
    fChain->SetBranchAddress("generalTracksCharge", generalTracksCharge, &b_generalTracksCharge);
-   fChain->SetBranchAddress("isElePlusJets", &isElePlusJets, &b_isElePlusJets);
-   fChain->SetBranchAddress("genPDFScale", &genPDFScale, &b_genPDFScale);
-   fChain->SetBranchAddress("genPDFx1", &genPDFx1, &b_genPDFx1);
-   fChain->SetBranchAddress("genPDFx2", &genPDFx2, &b_genPDFx2);
-   fChain->SetBranchAddress("genPDFf1", &genPDFf1, &b_genPDFf1);
-   fChain->SetBranchAddress("genPDFf2", &genPDFf2, &b_genPDFf2);
-   fChain->SetBranchAddress("topPtReweight", &topPtReweight, &b_topPtReweight);
+   if (isMC) {
+     fChain->SetBranchAddress("isElePlusJets", &isElePlusJets, &b_isElePlusJets);
+     fChain->SetBranchAddress("genPDFScale", &genPDFScale, &b_genPDFScale);
+     fChain->SetBranchAddress("genPDFx1", &genPDFx1, &b_genPDFx1);
+     fChain->SetBranchAddress("genPDFx2", &genPDFx2, &b_genPDFx2);
+     fChain->SetBranchAddress("genPDFf1", &genPDFf1, &b_genPDFf1);
+     fChain->SetBranchAddress("genPDFf2", &genPDFf2, &b_genPDFf2);
+   }
    fChain->SetBranchAddress("processId", &processId, &b_processId);
    fChain->SetBranchAddress("processPtHat", &processPtHat, &b_processPtHat);
    fChain->SetBranchAddress("processMCWeight", &processMCWeight, &b_processMCWeight);
    fChain->SetBranchAddress("beamSpotX", &beamSpotX, &b_beamSpotX);
    fChain->SetBranchAddress("beamSpotY", &beamSpotY, &b_beamSpotY);
    fChain->SetBranchAddress("beamSpotZ", &beamSpotZ, &b_beamSpotZ);
-   fChain->SetBranchAddress("numPv", &numPv, &b_numPv);
    fChain->SetBranchAddress("pvX", &pvX, &b_pvX);
    fChain->SetBranchAddress("pvY", &pvY, &b_pvY);
    fChain->SetBranchAddress("pvZ", &pvZ, &b_pvZ);
@@ -1118,18 +1278,16 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("mhtSignif", &mhtSignif, &b_mhtSignif);
    fChain->SetBranchAddress("nTriggerBits", &nTriggerBits, &b_nTriggerBits);
    fChain->SetBranchAddress("TriggerBits", &TriggerBits, &b_TriggerBits);
-   fChain->SetBranchAddress("numVert", &numVert, &b_numVert);
    fChain->SetBranchAddress("PileUpWeightRunA", &PileUpWeightRunA, &b_pileUpWeight);
    fChain->SetBranchAddress("PileUpWeightRunB", &PileUpWeightRunB, &b_pileUpWeight);
    fChain->SetBranchAddress("PileUpWeightRunC", &PileUpWeightRunC, &b_pileUpWeight);
-   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v12", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v12, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v12);
-   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v13", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v13, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v13);
-   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v14", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v14, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v14);
    fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v15", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v15, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v15);
    fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v16", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v16, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v16);
    fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v17", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v17, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v17);
    fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v18", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v18, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v18);
-   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19);
+   if (!isMC){
+     fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19);
+   }
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1);
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2);
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3);
@@ -1138,7 +1296,6 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6);
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7);
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8);
-   fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3);
@@ -1148,6 +1305,9 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9);
+   if (!isMC){
+     fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9);
+   }
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v13", &HLT_Mu17_Mu8_v13, &b_HLT_Mu17_Mu8_v13);
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v14", &HLT_Mu17_Mu8_v14, &b_HLT_Mu17_Mu8_v14);
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v15", &HLT_Mu17_Mu8_v15, &b_HLT_Mu17_Mu8_v15);
@@ -1155,11 +1315,13 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v17", &HLT_Mu17_Mu8_v17, &b_HLT_Mu17_Mu8_v17);
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v18", &HLT_Mu17_Mu8_v18, &b_HLT_Mu17_Mu8_v18);
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v19", &HLT_Mu17_Mu8_v19, &b_HLT_Mu17_Mu8_v19);
-//    fChain->SetBranchAddress("HLT_Mu17_Mu8_v15", &HLT_Mu17_Mu8_v15, &b_HLT_Mu17_Mu8_v15);
-//    fChain->SetBranchAddress("HLT_Mu17_Mu8_v14", &HLT_Mu17_Mu8_v14, &b_HLT_Mu17_Mu8_v14);
-   fChain->SetBranchAddress("HLT_Mu17_Mu8_v20", &HLT_Mu17_Mu8_v20, &b_HLT_Mu17_Mu8_v20);
-   fChain->SetBranchAddress("HLT_Mu17_Mu8_v21", &HLT_Mu17_Mu8_v21, &b_HLT_Mu17_Mu8_v21);
-   fChain->SetBranchAddress("HLT_Mu17_Mu8_v22", &HLT_Mu17_Mu8_v22, &b_HLT_Mu17_Mu8_v22);
+   if (!isMC){
+     fChain->SetBranchAddress("HLT_Mu17_Mu8_v20", &HLT_Mu17_Mu8_v20, &b_HLT_Mu17_Mu8_v20);
+     fChain->SetBranchAddress("HLT_Mu17_Mu8_v21", &HLT_Mu17_Mu8_v21, &b_HLT_Mu17_Mu8_v21);
+   }
+   if (!isMC){
+     fChain->SetBranchAddress("HLT_Mu17_Mu8_v22", &HLT_Mu17_Mu8_v22, &b_HLT_Mu17_Mu8_v22);
+   }
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v6", &HLT_Mu17_TkMu8_v6, &b_HLT_Mu17_TkMu8_v6);
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v7", &HLT_Mu17_TkMu8_v7, &b_HLT_Mu17_TkMu8_v7);
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v8", &HLT_Mu17_TkMu8_v8, &b_HLT_Mu17_TkMu8_v8);
@@ -1169,31 +1331,32 @@ void SkimFileEvent::Init(TTree *tree)
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v12", &HLT_Mu17_TkMu8_v12, &b_HLT_Mu17_TkMu8_v12);
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v13", &HLT_Mu17_TkMu8_v13, &b_HLT_Mu17_TkMu8_v13);
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v14", &HLT_Mu17_TkMu8_v14, &b_HLT_Mu17_TkMu8_v14);
+   //MC trigger branches
    fChain->SetBranchAddress("HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_v9", &HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_v9, &b_HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_v9);
    fChain->SetBranchAddress("HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_v9", &HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_v9, &b_HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_v9);
    fChain->SetBranchAddress("HLT_Mu17_Mu8_v12", &HLT_Mu17_Mu8_v12, &b_HLT_Mu17_Mu8_v12);
    fChain->SetBranchAddress("HLT_Mu17_TkMu8_v5", &HLT_Mu17_TkMu8_v5, &b_HLT_Mu17_TkMu8_v5);
-   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11);
-   fChain->SetBranchAddress("nGenPar", &nGenPar, &b_nGenPar);
-   fChain->SetBranchAddress("genParEta", genParEta, &b_genParEta);
-   fChain->SetBranchAddress("genParPhi", genParPhi, &b_genParPhi);
-   fChain->SetBranchAddress("genParE", genParE, &b_genParE);
-   fChain->SetBranchAddress("genParPt", genParPt, &b_genParPt);
-   fChain->SetBranchAddress("genParId", genParId, &b_genParId);
-   fChain->SetBranchAddress("genParNumMothers", genParNumMothers, &b_genParNumMothers); // 150320 - ADM - # of mothers for gen level particle
-   fChain->SetBranchAddress("genParMotherId", genParMotherId, &b_genParMotherId); // 150320 - ADM - Mother pid for gen level particle
-   fChain->SetBranchAddress("genParNumDaughters", genParNumDaughters, &b_genParNumDaughters); // 150401 - ADM - # of daughters for gen level particles
-   fChain->SetBranchAddress("genParCharge", genParCharge, &b_genParCharge);
+   fChain->SetBranchAddress("HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11", &HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11, &b_HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11);   
+   if (isMC) {
+     fChain->SetBranchAddress("nGenPar", &nGenPar, &b_nGenPar);
+     fChain->SetBranchAddress("genParEta", genParEta, &b_genParEta);
+     fChain->SetBranchAddress("genParPhi", genParPhi, &b_genParPhi);
+     fChain->SetBranchAddress("genParE", genParE, &b_genParE);
+     fChain->SetBranchAddress("genParPt", genParPt, &b_genParPt);
+     fChain->SetBranchAddress("genParId", genParId, &b_genParId);
+     fChain->SetBranchAddress("genParCharge", genParCharge, &b_genParCharge);
+   }
    fChain->SetBranchAddress("eventRun", &eventRun, &b_eventRun);
    fChain->SetBranchAddress("eventNum", &eventNum, &b_eventNum);
    fChain->SetBranchAddress("eventLumiblock", &eventLumiblock, &b_eventLumiblock);
    fChain->SetBranchAddress("eventWeight", &eventWeight, &b_eventWeight);
-
+   fChain->SetBranchAddress("numVert", &numVert, &b_numVert);
    Notify();
 }
 
 Bool_t SkimFileEvent::Notify()
 {
+  //  std::cout << "Does the notify." << std::endl;
    // The Notify() function is called when a new file is opened. This
    // can be either for a new TTree in a TChain or when when a new TTree
    // is started when using PROOF. It is normally not necessary to make changes
@@ -1217,5 +1380,5 @@ Int_t SkimFileEvent::Cut(Long64_t entry)
 // returns -1 otherwise.
    return 1;
 }
-
 #endif // #ifdef SkimFileEvent_cxx
+
