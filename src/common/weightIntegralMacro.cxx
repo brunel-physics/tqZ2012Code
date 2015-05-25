@@ -8,6 +8,8 @@
 int main(int argc, char *argv[])
 {
 
+  std::cout << "NOTE: This works only with skim files made with the eventWeight in tree branch!!!" << std::endl;
+
   Int_t lNumberOfFiles = argc;
   //  std::cout << "Number of Files: " << argc-1 << std::endl;
 
