@@ -168,8 +168,8 @@ colour = kRed1
 label = WW
 plotType = f
 
-[eeRun2012A]
-fileName = /home/eepgdal/tZq/configs/datasets/fileLists/eeRun2012AFiles.txt
+[mumuRun2012A]
+fileName = /home/eepgdal/tZq/configs/datasets/fileLists/mumuRun2012AFiles.txt
 luminosity = 876.225
 runType = data
 histoName = data
@@ -178,8 +178,8 @@ plotType = p
 colour = kBlack
 triggerFlag = et
 
-[eeRun2012B]
-fileName = /home/eepgdal/tZq/configs/datasets/fileLists/eeRun2012BFiles.txt
+[mumuRun2012B]
+fileName = /home/eepgdal/tZq/configs/datasets/fileLists/mumuRun2012BFiles.txt
 luminosity = 4412.
 runType = data
 histoName = data
@@ -188,8 +188,8 @@ plotType = p
 colour = kBlack
 triggerFlag = et
 
-[eeRun2012C]
-fileName = /home/eepgdal/tZq/configs/datasets/fileLists/eeRun2012CFiles.txt
+[mumuRun2012C]
+fileName = /home/eepgdal/tZq/configs/datasets/fileLists/mumuRun2012CFiles.txt
 luminosity = 7055.
 runType = data
 histoName = data
@@ -198,11 +198,11 @@ plotType = p
 colour = kBlack
 triggerFlag = eCt
 
-[eeRun2012D]
-fileName = /home/eepgdal/tZq/configs/datasets/fileLists/eeRun2012DFiles.txt
+[mumuRun2012D]
+fileName = /home/eepgdal/tZq/configs/datasets/fileLists/mumuRun2012DFiles.txt
 luminosity = 7369.
 runType = data
-histoName = data
+hiBstoName = data
 label = Data
 plotType = p
 colour = kBlack
