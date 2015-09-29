@@ -1,0 +1,41 @@
+[mumuRun2012A]
+fileName = configs/datasets/fileLists/mumuRun2012AFiles.txt
+luminosity = 876.225
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = et
+
+[mumuRun2012B]
+fileName = configs/datasets/fileLists/mumuRun2012BFiles.txt
+luminosity = 4412.
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = et
+
+[mumuRun2012C]
+fileName = configs/datasets/fileLists/mumuRun2012CFiles.txt
+luminosity = 7055.
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = eCt
+
+[mumuRun2012D]
+fileName = configs/datasets/fileLists/mumuRun2012DFiles.txt
+luminosity = 7369.
+runType = data
+hiBstoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = eDt
+
+[]

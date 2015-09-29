@@ -1,0 +1,41 @@
+[emuRun2012A]
+fileName = configs/datasets/fileLists/emuRun2012AFiles.txt
+luminosity = 876.225
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = et
+
+[emuRun2012B]
+fileName = configs/datasets/fileLists/emuRun2012BFiles.txt
+luminosity = 4412.
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = et
+
+[emuRun2012C]
+fileName = configs/datasets/fileLists/emuRun2012CFiles.txt
+luminosity = 7055.
+runType = data
+histoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = eCt
+
+[emuRun2012D]
+fileName = configs/datasets/fileLists/emuRun2012DFiles.txt
+luminosity = 7369.
+runType = data
+hiBstoName = data
+label = Data
+plotType = p
+colour = kBlack
+triggerFlag = eDt
+
+[]
