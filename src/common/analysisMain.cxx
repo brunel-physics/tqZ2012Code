@@ -569,7 +569,8 @@ int main(int argc, char* argv[]){
   //Initialise PDFs
   if (systToRun & 1024 || systToRun & 2048){
     LHAPDF::initPDFSet(1, "CT10nnlo.LHgrid");
-    //LHAPDF::initPDFSet(1, "cteq6ll.LHpdf");
+    //    LHAPDF::initPDFSet(1, "cteq6ll.LHpdf");
+    //    LHAPDF::initPDFSet(1, "cteq6lg.LHgrid");
   }
   //    LHAPDF::initPDFSet(1, "CT10nnlo.LHgrid");
 
@@ -840,7 +841,6 @@ int main(int argc, char* argv[]){
 	      eventWeight *= twgt;
 	    }
 	  }
-
 	  if (infoDump) eventWeight = 1;
 	  if (readEventList) {
 	    bool tempBool = false;
@@ -861,19 +861,23 @@ int main(int argc, char* argv[]){
 	    if (systInd) systMask = systMask << 1;
 	    continue;
 	  }
+	  //	  std::cout << std::setprecision(9) << eventWeight << " " << datasetWeight << std::endl;
 	  //Do PDF reweighting things here
 	  if (systMask == 1024 || systMask == 2048){
+	    //std::cout << std::setprecision(15) << eventWeight << " ";
 	    LHAPDF::usePDFMember(1,0);
 	    float q = event->genPDFScale;
 	    float x1 = event->genPDFx1;
 	    float x2 = event->genPDFx2;
 	    int id1 = event->genPDFf1;
 	    int id2 = event->genPDFf2;
+	    if (id2 == 21) id2 = 0;
+	    if (id1 == 21) id1 = 0;
 	    double xpdf1 = LHAPDF::xfx(1, x1, q, id1);
 	    double xpdf2 = LHAPDF::xfx(1, x2, q, id2);
 	    std::vector<float> pdf_weights;
-	    //	  std::cout << q << " " << x1 << " " << id1 << " " << id2 << " ";
-	    //	  std::cout << xpdf1 << " " << xpdf2 << " " << xpdf1 * xpdf2 << " ";
+	    //std::cout << q << " " << x1 << " " << x2 << " " << id1 << " " << id2 << " ";
+	    //std::cout << xpdf1 << " " << xpdf2 << " " << xpdf1 * xpdf2 << " ";
 	    float min = 1.0;
 	    float max = 1.0;
 	    float pdfWeightUp = 0.0;
@@ -882,17 +886,23 @@ int main(int argc, char* argv[]){
 	      LHAPDF::usePDFMember(1,i);
 	      double xpdf1_new = LHAPDF::xfx(1, x1, q, id1);
 	      double xpdf2_new = LHAPDF::xfx(1, x2, q, id2);
-	      //	      std::cout << x1 << " " << id1 << " " << x2 << " " << id2 << " " << q << " " <<xpdf1 << " " << xpdf2 << " " << xpdf1_new << " " << xpdf2_new << " ";
-	      double weight = xpdf1_new * xpdf2_new / (xpdf1 * xpdf2);
+	    //std::cout << q << " " << x1 << " " << x2 << " " << id1 << " " << id2 << " ";
+	    //std::cout << xpdf1 << " " << xpdf2 << " " << xpdf1 * xpdf2 << " ";
+	      double weight = 1.;
+	      if( (xpdf1 * xpdf2) > 0.00001)
+		weight = xpdf1_new * xpdf2_new / (xpdf1 * xpdf2);
 	      pdf_weights.push_back(weight);
 	      if (weight > 1.0) pdfWeightUp += (1-weight) * (1-weight);
 	      if (weight < 1.0) pdfWeightDown += (1-weight) * (1-weight);
 	      if (weight > max) max = weight;
 	      if (weight < min) min = weight;
+	      //	      std::cout << " " << xpdf1_new << " " << xpdf2_new << " " << weight << " ";
+			
 	    }
 	    if (systMask == 1024) eventWeight *= max;
 	    if (systMask == 2048) eventWeight *= min;
-	    //	  std::cout << eventWeight << std::setprecision(4) << max << " " << min << " " << 1+std::sqrt(pdfWeightUp) << " " << 1-std::sqrt(pdfWeightDown) << std::endl;
+	    //std::cout << eventWeight << std::setprecision(4) << max << " " << min << " " << 1+std::sqrt(pdfWeightUp) << " " << 1-std::sqrt(pdfWeightDown) << std::endl;
+	    //std::cout << std::setprecision(9) << " " << min << " " << max << " " << eventWeight << std::endl;
 	  }
 	  //      if (synchCutFlow){
 	  //	std::cout << event->eventNum << " " << event->eventRun << " " << event->eventLumiblock << " " << std::endl;
