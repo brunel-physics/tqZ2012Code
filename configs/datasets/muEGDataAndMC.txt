@@ -8,6 +8,17 @@ colour = kYellow
 label = tZq
 plotType = f
 
+[tZq4Flavour3Lepton]
+fileName = configs/datasets/fileLists/tZq4Flavour3Lepton.txt
+totalEvents = 1490700
+crossSection = 0.00783
+runType = mc
+histoName = tZq4f3l
+colour = kYellow
+label = tZq4f3l
+plotType = f
+
+
 [ttW]
 fileName = configs/datasets/fileLists/ttWFiles.txt
 crossSection = 0.232 
