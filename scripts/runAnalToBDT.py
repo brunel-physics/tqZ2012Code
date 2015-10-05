@@ -25,6 +25,6 @@ for chanName in channelList.keys():
 #Make the mvaInput directory
 subprocess.call("mkdir mvaDirs/inputs/met"+metStr+"mtw"+mtwStr,shell=True)
 
-print "python scripts/makeMCAInput.py [\\\"eee\\\",\\\"eemu\\\",\\\"emumu\\\",\\\"mumumu\\\"] mvaDirs/skims/met"+metStr+"mtw"+mtwStr+"/ mvaDirs/inputs/met"+metStr+"mtw"+mtwStr+"/"
-subprocess.call("python scripts/makeMCAInput.py [\\\"eee\\\",\\\"eemu\\\",\\\"emumu\\\",\\\"mumumu\\\"] mvaDirs/skims/met"+metStr+"mtw"+mtwStr+"/ mvaDirs/inputs/met"+metStr+"mtw"+mtwStr+"/",shell=True)
+print "python scripts/makeMVAInput.py [\\\"eee\\\",\\\"eemu\\\",\\\"emumu\\\",\\\"mumumu\\\"] mvaDirs/skims/met"+metStr+"mtw"+mtwStr+"/ mvaDirs/inputs/met"+metStr+"mtw"+mtwStr+"/"
+subprocess.call("python scripts/makeMVAInput.py [\\\"eee\\\",\\\"eemu\\\",\\\"emumu\\\",\\\"mumumu\\\"] mvaDirs/skims/met"+metStr+"mtw"+mtwStr+"/ mvaDirs/inputs/met"+metStr+"mtw"+mtwStr+"/",shell=True)
 
