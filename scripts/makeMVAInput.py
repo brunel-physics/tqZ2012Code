@@ -372,7 +372,7 @@ def main():
 #    zEnrichWeights = {"mumumu":0.057,"emumu":0.612,"eemu":0.0637,"eee":0.216}
 
     #Mapping of our mc names to IPHC names
-    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","tZq":"tZq","ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
+    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","tZq":"tZq","tZq4Flavour3Lepton":"tZq4f", "ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
 #    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","WZ2l2nu":"WZ","ZZ2l2q":"ZZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
 #    listOfMCs = {"ZZ4l":"ZZ"}
 #    listOfMCs = {"ttW":"TTW"}
