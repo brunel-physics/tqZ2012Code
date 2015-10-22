@@ -28,7 +28,7 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   numTightMu_(0),
   tightMuonPt_(20),
   tightMuonEta_(2.4),
-  tightMuonRelIso_(0.2),
+  tightMuonRelIso_(0.12),
   //Loose muons
   numLooseMu_(0),
   looseMuonPt_(10),
