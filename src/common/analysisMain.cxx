@@ -886,8 +886,7 @@ int main(int argc, char* argv[]){
 	      LHAPDF::usePDFMember(1,i);
 	      double xpdf1_new = LHAPDF::xfx(1, x1, q, id1);
 	      double xpdf2_new = LHAPDF::xfx(1, x2, q, id2);
-	    //std::cout << q << " " << x1 << " " << x2 << " " << id1 << " " << id2 << " ";
-	    //std::cout << xpdf1 << " " << xpdf2 << " " << xpdf1 * xpdf2 << " ";
+	      //std::cout << " " << x1 << " " << id1 << " " << x2 << " " << id2 << " " << q << " " <<xpdf1 << " " << xpdf2 << " " << xpdf1_new << " " << xpdf2_new << " ";
 	      double weight = 1.;
 	      if( (xpdf1 * xpdf2) > 0.00001)
 		weight = xpdf1_new * xpdf2_new / (xpdf1 * xpdf2);
@@ -1085,3 +1084,4 @@ int main(int argc, char* argv[]){
   
   std::cerr  << "But not past it" << std::endl;
 }
+
