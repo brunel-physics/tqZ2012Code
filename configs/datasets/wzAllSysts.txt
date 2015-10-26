@@ -1,0 +1,70 @@
+[WZ3l1nuMatchUp]
+crossSection = 1.09
+totalEvents = 1125743
+fileName = configs/datasets/fileLists/WZ3l1nuMatchUpFiles.txt
+runType = mc
+histoName = wzMatchUp
+colour = kOrange
+label = wzMatchUp
+plotType = f
+
+[WZ3l1nuMatchDown]
+crossSection = 1.09
+totalEvents = 821047
+fileName = configs/datasets/fileLists/WZ3l1nuMatchDownFiles.txt
+runType = mc
+histoName = wzMatchDown
+colour = kOrange
+label = wzMatchDown
+plotType = f
+
+[WZ3l1nuScaleUp]
+crossSection = 1.09
+totalEvents = 1077397
+fileName = configs/datasets/fileLists/WZ3l1nuScaleUpFiles.txt
+runType = mc
+histoName = wzScaleUp
+colour = kOrange
+label = wzScaleUp
+plotType = f
+
+[WZ3l1nuScaleDown]
+crossSection = 1.09
+totalEvents = 1144940
+fileName = configs/datasets/fileLists/WZ3l1nuScaleDownFiles.txt
+runType = mc
+histoName = wzScaleDown
+colour = kOrange
+label = wzScaleDown
+plotType = f
+
+[ttZScaleUp]
+fileName = configs/datasets/fileLists/ttZScaleUpFiles.txt
+crossSection = 0.2057
+runType = mc
+histoName = ttZScaleUp
+totalEvents = 413284
+colour = kGreen
+label = ttZScaleUp
+plotType = f
+
+[ttZScaleDown]
+fileName = configs/datasets/fileLists/ttZScaleDownFiles.txt
+crossSection = 0.2057
+runType = mc
+histoName = ttZScaleDown
+totalEvents = 416090
+colour = kGreen
+label = ttZScaleDown
+plotType = f
+
+[ttZModel]
+fileName = configs/datasets/fileLists/ttZModelFiles.txt
+runType = mc
+histoName = ttZModel
+colour = kGreen
+plotType = f
+crossSection = 0.2057
+totalEvents = 787495
+
+[]
