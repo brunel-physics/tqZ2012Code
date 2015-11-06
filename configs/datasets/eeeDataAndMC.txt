@@ -61,7 +61,7 @@ plotType = f
 [WZ3l1nu]
 crossSection = 1.09
 totalEvents = 1286770
-fileName = configs/datasets/fileLists/WZ3l1nuFiles1.txt
+fileName = configs/datasets/fileLists/WZ3l1nuFiles.txt
 runType = mc
 histoName = wz
 colour = kOrange
@@ -229,3 +229,4 @@ label = zPlusJets
 plotType = f
 
 []
+
