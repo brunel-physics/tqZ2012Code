@@ -39,6 +39,7 @@ def getJets(tree,syst,jetUnc,met):
     jetList = []
     jetVecList = []
     for i in range(15):
+        if tree.jetInd[i] > len(tree.jetPF2PATEta): continue
         if tree.jetInd[i] > -.5:
             jetList.append(tree.jetInd[i])
             jetVecList.append(getJetVec(tree,tree.jetInd[i],syst,jetUnc,met))
@@ -50,6 +51,7 @@ def getBjets(tree,syst,jetUnc,met,jets):
     bJetList = []
     bJetVecList = []
     for i in range(10):
+        if tree.bJetInd[i] > len(tree.jetPF2PATEta): continue
         if tree.bJetInd[i] > -0.5:
             bJetList.append(tree.bJetInd[i])
             bJetVecList.append(getJetVec(tree,jets[tree.bJetInd[i]],syst,jetUnc,met))
@@ -165,6 +167,7 @@ def setupInputVars():
     inputVars["wZdelR"] = array('f',[0.])
     inputVars["j1j2delR"] = array('f',[0.])
     inputVars["minZJetR"] = array('f',[0.])
+    inputVars["wLepjminR"] = array('f',[0.])
     inputVars["zWLepdelR"] = array('f',[0.])
     inputVars["zmetdelPhi"] = array('f',[0.])
     inputVars["zWLepdelPhi"] = array('f',[0.])
@@ -183,55 +186,56 @@ def setupInputVars():
     return inputVars
 
 def setupBranches(tree,varMap):
-    tree.Branch("tree_EvtWeight", varMap["eventWeight"], "tree_EvtWeight/F")
-    tree.Branch("tree_mTW", varMap["mTW"], "tree_mTW/F")
-    tree.Branch("tree_leptWPt", varMap["leptWPt"], "tree_leptWPt/F")
-    tree.Branch("tree_leadJetPt",varMap["leadJetPt"],"tree_leadJetPt/F")
-    tree.Branch("tree_totPt",varMap["totPt"],"tree_totPt/F")
-    tree.Branch("tree_totEta",varMap["totEta"],"tree_totEta/F")
-    tree.Branch("tree_totPtVec",varMap["totPtVec"],"tree_totPtVec/F")
-    tree.Branch("tree_totVecM",varMap["totVecM"],"tree_totVecM/F")
-    tree.Branch("tree_Channel",varMap["chan"],"tree_Channel/I")
-    tree.Branch("tree_NJets",varMap["nJets"],"tree_NJets/F")
-    tree.Branch("tree_NBJets",varMap["nBjets"],"tree_NBJets/F")
-    tree.Branch("tree_met",varMap["met"],"tree_met/F")
-    tree.Branch("tree_lepPt",varMap["lepPt"],"tree_lepPt/F")
-    tree.Branch("tree_lepMetPt",varMap["lepMetPt"],"tree_lepMetPt/F")
-    tree.Branch("tree_totPt2Jet",varMap["totPt2Jet"],"tree_totPt2Jet/F")
-    tree.Branch("tree_btagDiscri",varMap["bTagDisc"],"btagDiscri/F")
-    tree.Branch("tree_leadJetbTag",varMap["leadJetbTag"],"leadJetbTag/F")
-    tree.Branch("tree_leadJetEta",varMap["leadJetEta"],"leadJetEta/F")
-    tree.Branch("tree_secJetbTag",varMap["secJetbTag"],"secJetbTag/F")
-    tree.Branch("tree_secJetPt",varMap["secJetPt"],"secJetPt/F")
-    tree.Branch("tree_secJetEta",varMap["secJetEta"],"secJetEta/F")
-    tree.Branch("tree_topMass",varMap["topMass"],"tree_topMass/F")
-    tree.Branch("tree_topPt",varMap["topPt"],"tree_topPt/F")
-    tree.Branch("tree_topEta",varMap["topEta"],"tree_topEta/F")
-    tree.Branch("tree_Zpt",varMap["zPt"],"tree_Zpt/F")
-    tree.Branch("tree_Zeta",varMap["zEta"],"tree_Zeta/F")
-    tree.Branch("tree_leptWEta",varMap["wLepEta"],"tree_leptWEta/F")
-    tree.Branch("tree_wzdelR",varMap["wZdelR"],"tree_wzdelR/F")
-    tree.Branch("tree_jjdelR",varMap["j1j2delR"],"tree_jjdelR/F")
-    tree.Branch("tree_zjminR",varMap["minZJetR"],"tree_zjminR/F")
-    tree.Branch("tree_ZlepWdelPhi",varMap["zWLepdelPhi"],"tree_ZlepWdelPhi/F")
-    tree.Branch("tree_ZmetdelPhi",varMap["zmetdelPhi"],"tree_ZmetdelPhi/F")
-    tree.Branch("tree_ZlepWdelR",varMap["zWLepdelR"],"tree_ZlepWdelR/F")
-    tree.Branch("tree_lbDelR",varMap["lbDelR"],"tree_lbDelR/F")
-    tree.Branch("tree_lbDelPhi",varMap["lbDelPhi"],"tree_lbDelPhi/F")
-    tree.Branch("tree_zlb1DelR",varMap["zlb1DelR"],"tree_zlb1DelR/F")
-    tree.Branch("tree_zlb1DelPhi",varMap["zlb1DelPhi"],"tree_zlb1DelPhi/F")
-    tree.Branch("tree_zlb2DelR",varMap["zlb2DelR"],"tree_zlb2DelR/F")
-    tree.Branch("tree_zlb2DelPhi",varMap["zlb2DelPhi"],"tree_zlb2DelPhi/F")
-    tree.Branch("tree_totHt",varMap["totHt"],"tree_totHt/F")
-    tree.Branch("tree_lepHt",varMap["lepHt"],"tree_lepHt/F")
-    tree.Branch("tree_jetHt",varMap["jetHt"],"tree_jetHt/F")
-    tree.Branch("tree_lepMetHt",varMap["lepMetHt"],"tree_lepMetHt/F")
-    tree.Branch("tree_totHtOverPt",varMap["totHtOverPt"],"tree_totHtOverPt/F")
-    tree.Branch("tree_zMass",varMap["zMass"],"tree_zMass/F")
+    tree.Branch("EvtWeight", varMap["eventWeight"], "EvtWeight/F")
+    tree.Branch("mTW", varMap["mTW"], "mTW/F")
+    tree.Branch("leptWPt", varMap["leptWPt"], "leptWPt/F")
+    tree.Branch("leadJetPt",varMap["leadJetPt"],"leadJetPt/F")
+    tree.Branch("totPt",varMap["totPt"],"totPt/F")
+    tree.Branch("totEta",varMap["totEta"],"totEta/F")
+    tree.Branch("totPtVec",varMap["totPtVec"],"totPtVec/F")
+    tree.Branch("totVecM",varMap["totVecM"],"totVecM/F")
+    tree.Branch("Channel",varMap["chan"],"Channel/I")
+    tree.Branch("NJets",varMap["nJets"],"NJets/F")
+    tree.Branch("NBJets",varMap["nBjets"],"NBJets/F")
+    tree.Branch("met",varMap["met"],"met/F")
+    tree.Branch("lepPt",varMap["lepPt"],"lepPt/F")
+    tree.Branch("lepMetPt",varMap["lepMetPt"],"lepMetPt/F")
+    tree.Branch("totPt2Jet",varMap["totPt2Jet"],"totPt2Jet/F")
+    tree.Branch("btagDiscri",varMap["bTagDisc"],"btagDiscri/F")
+    tree.Branch("leadJetbTag",varMap["leadJetbTag"],"leadJetbTag/F")
+    tree.Branch("leadJetEta",varMap["leadJetEta"],"leadJetEta/F")
+    tree.Branch("secJetbTag",varMap["secJetbTag"],"secJetbTag/F")
+    tree.Branch("secJetPt",varMap["secJetPt"],"secJetPt/F")
+    tree.Branch("secJetEta",varMap["secJetEta"],"secJetEta/F")
+    tree.Branch("topMass",varMap["topMass"],"topMass/F")
+    tree.Branch("topPt",varMap["topPt"],"topPt/F")
+    tree.Branch("topEta",varMap["topEta"],"topEta/F")
+    tree.Branch("Zpt",varMap["zPt"],"Zpt/F")
+    tree.Branch("Zeta",varMap["zEta"],"Zeta/F")
+    tree.Branch("leptWEta",varMap["wLepEta"],"leptWEta/F")
+    tree.Branch("wzdelR",varMap["wZdelR"],"wzdelR/F")
+    tree.Branch("jjdelR",varMap["j1j2delR"],"jjdelR/F")
+    tree.Branch("zjminR",varMap["minZJetR"],"zjminR/F")
+    tree.Branch("wLepjminR",varMap["wLepjminR"],"wLepjminR/F")
+    tree.Branch("ZlepWdelPhi",varMap["zWLepdelPhi"],"ZlepWdelPhi/F")
+    tree.Branch("ZmetdelPhi",varMap["zmetdelPhi"],"ZmetdelPhi/F")
+    tree.Branch("ZlepWdelR",varMap["zWLepdelR"],"ZlepWdelR/F")
+    tree.Branch("lbDelR",varMap["lbDelR"],"lbDelR/F")
+    tree.Branch("lbDelPhi",varMap["lbDelPhi"],"lbDelPhi/F")
+    tree.Branch("zlb1DelR",varMap["zlb1DelR"],"zlb1DelR/F")
+    tree.Branch("zlb1DelPhi",varMap["zlb1DelPhi"],"zlb1DelPhi/F")
+    tree.Branch("zlb2DelR",varMap["zlb2DelR"],"zlb2DelR/F")
+    tree.Branch("zlb2DelPhi",varMap["zlb2DelPhi"],"zlb2DelPhi/F")
+    tree.Branch("totHt",varMap["totHt"],"totHt/F")
+    tree.Branch("lepHt",varMap["lepHt"],"lepHt/F")
+    tree.Branch("jetHt",varMap["jetHt"],"jetHt/F")
+    tree.Branch("lepMetHt",varMap["lepMetHt"],"lepMetHt/F")
+    tree.Branch("totHtOverPt",varMap["totHtOverPt"],"totHtOverPt/F")
+    tree.Branch("zMass",varMap["zMass"],"zMass/F")
 
 
 
-def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1., zPtEventWeight = 0.):
+def fillTree(outTree, outTreeSdBnd, varMap, tree, label, channel, jetUnc, overRideWeight = -1., zPtEventWeight = 0.):
     #Fills the output tree. This is a new function because I want to access data and MC in different ways but do the same thing to them in the end.
 
     syst = 0
@@ -261,6 +265,7 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
             #Fill some plots here. Let's make an example mTW plot.
             #Make a config that'll do this for me? I've done these before so should be easy. Fill expressions could be a pain?
         tree.GetEntry(event)
+#        if tree.eventWeight < 0.000000001: continue
         (zLep1,zLep2,wLep) = sortOutLeptons(tree,channel)
         metVec = TLorentzVector(tree.metPF2PATPx,tree.metPF2PATPy,0,tree.metPF2PATEt)
         (jets,jetVecs) = getJets(tree,syst,jetUnc,metVec)
@@ -282,6 +287,8 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
             varMap["eventWeight"][0] = 0.
 
         if varMap["eventWeight"][0] < 0.:
+            varMap["eventWeight"][0] = 0.
+        if varMap["eventWeight"][0] > 100:
             varMap["eventWeight"][0] = 0.
         varMap["leptWPt"][0] = wLep.Pt()
         varMap["wLepEta"][0] = wLep.Eta()
@@ -315,7 +322,8 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
         varMap["nJets"][0] = float(len(jets))
         varMap["nBjets"][0] = float(len(bJets))
         varMap["met"][0] = metVec.Pt()
-        varMap["bTagDisc"][0] = tree.jetPF2PATBDiscriminator[jets[bJets[0]]]
+        varMap["bTagDisc"][0] = 0.
+        if len(bJets) > 0: varMap["bTagDisc"][0] = tree.jetPF2PATBDiscriminator[jets[bJets[0]]]
         varMap["leadJetbTag"][0] = tree.jetPF2PATBDiscriminator[jets[0]]
         varMap["secJetbTag"][0] = -10.
         varMap["secJetPt"][0] = -1.
@@ -326,9 +334,13 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
             varMap["secJetEta"][0] = jetVecs[1].Eta()
 
 #        print bTagDisc[0], bJets[0], tree.jetPF2PATBDiscriminator[jets[bJets[0]]], len(bJets), nBjets[0]
-        varMap["topMass"][0] = (bJetVecs[0] + metVec + wLep).M()
-        varMap["topPt"][0] = (bJetVecs[0] + metVec + wLep).Pt()
-        varMap["topEta"][0] = (bJetVecs[0] + metVec + wLep).Eta()
+        varMap["topMass"][0] = 0.
+        varMap["topPt"][0] = 0.
+        varMap["topEta"][0] = 0.
+        if len(bJetVecs) > 0:
+            varMap["topMass"][0] = (bJetVecs[0] + metVec + wLep).M()
+            varMap["topPt"][0] = (bJetVecs[0] + metVec + wLep).Pt()
+            varMap["topEta"][0] = (bJetVecs[0] + metVec + wLep).Eta()
         varMap["zPt"][0] = (zLep2 + zLep1).Pt()
         varMap["zEta"][0] = (zLep2 + zLep1).Eta()
         varMap["wZdelR"][0] = (zLep2 + zLep1).DeltaR(metVec + wLep)
@@ -336,21 +348,29 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
         if len(jetVecs) > 1:
             varMap["j1j2delR"][0] = jetVecs[0].DeltaR(jetVecs[1])
         varMap["minZJetR"][0] = 3.0
+        varMap["wLepjminR"][0] = 3.0
         jetHt = 0.
         for i in range(len(jetVecs)):
             jetHt += jetVecs[i].Pt()
+            if jetVecs[i].DeltaR(wLep) < varMap["wLepjminR"][0]:
+                varMap["wLepjminR"][0] = jetVecs[i].DeltaR(wLep)
             if jetVecs[i].DeltaR(zLep2 + zLep1) < varMap["minZJetR"][0]:
                 varMap["minZJetR"][0] = jetVecs[i].DeltaR(zLep2 + zLep1)
-        outTree.Fill()
         varMap["zWLepdelR"][0] = (zLep2 + zLep1).DeltaR(wLep)
         varMap["zmetdelPhi"][0] = (zLep2+zLep1).DeltaPhi(metVec)
         varMap["zWLepdelPhi"][0] = (zLep2 + zLep1).DeltaPhi(wLep)        
-        varMap["lbDelR"][0] = wLep.DeltaR(jetVecs[bJets[0]])
-        varMap["lbDelPhi"][0] = wLep.DeltaPhi(jetVecs[bJets[0]])
-        varMap["zlb1DelR"][0] = zLep1.DeltaR(jetVecs[bJets[0]])
-        varMap["zlb1DelPhi"][0] = zLep1.DeltaPhi(jetVecs[bJets[0]])
-        varMap["zlb2DelR"][0] = zLep2.DeltaR(jetVecs[bJets[0]])
-        varMap["zlb2DelPhi"][0] = zLep2.DeltaPhi(jetVecs[bJets[0]])
+        varMap["lbDelR"][0] = 0.
+        if len(bJets) > 0: varMap["lbDelR"][0] = wLep.DeltaR(jetVecs[bJets[0]])
+        varMap["lbDelPhi"][0] = 0.
+        if len(bJets) > 0: varMap["lbDelPhi"][0] = wLep.DeltaPhi(jetVecs[bJets[0]])
+        varMap["zlb1DelR"][0] = 0.
+        if len(bJets) > 0: varMap["zlb1DelR"][0] = zLep1.DeltaR(jetVecs[bJets[0]])
+        varMap["zlb1DelPhi"][0] = 0.
+        if len(bJets) > 0: varMap["zlb1DelPhi"][0] = zLep1.DeltaPhi(jetVecs[bJets[0]])
+        varMap["zlb2DelR"][0] = 0.
+        if len(bJets) > 0: varMap["zlb2DelR"][0] = zLep2.DeltaR(jetVecs[bJets[0]])
+        varMap["zlb2DelPhi"][0] = 0.
+        if len(bJets) > 0: varMap["zlb2DelPhi"][0] = zLep2.DeltaPhi(jetVecs[bJets[0]])
         ht = 0.
         ht += zLep1.Pt() + zLep2.Pt() + wLep.Pt()
         varMap["lepHt"][0] = ht
@@ -362,6 +382,10 @@ def fillTree(outTree, varMap, tree, label, channel, jetUnc, overRideWeight = -1.
         varMap["totHtOverPt"][0] = ht /  sqrt(totPx * totPx + totPy * totPy) 
         varMap["zMass"][0] = (zLep1+zLep2).M()
 
+        if varMap["nJets"][0] == 1 and outTreeSdBnd:
+            outTreeSdBnd.Fill()
+        else:
+            outTree.Fill()
 
 
 def main():
@@ -372,14 +396,16 @@ def main():
 #    zEnrichWeights = {"mumumu":0.057,"emumu":0.612,"eemu":0.0637,"eee":0.216}
 
     #Mapping of our mc names to IPHC names
-    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","tZq":"tZq","tZq4Flavour3Lepton":"tZq4f", "ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
+    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","tZq":"tZq","tZq4Flavour3Lepton":"tZq4f","ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
+#    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","ttZ":"TTZ","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
+    #Reduced sets of data for testing and running over restricted samples
 #    listOfMCs = {"WW2l2nu":"WW","WZ3l1nu":"WZ","WZ2l2nu":"WZ","ZZ2l2q":"ZZ","ZZ4l":"ZZ","sChannel":"TsChan","sbarChannel":"TbarsChan","tChannel":"TtChan","tbarChannel":"TbartChan","tWInclusive":"TtW","tbarWInclusive":"TbartW","ttW":"TTW","ttZ":"TTZ","ttbarDilepton":"TT","wPlusJets":"Wjets", "zPlusJets10To50Filter":"DYToLL_M10-50","zPlusJetsTuneZ2Star":"Zjets"}
-#    listOfMCs = {"ZZ4l":"ZZ"}
-#    listOfMCs = {"ttW":"TTW"}
+    #listOfMCs = {"ZZ4l":"ZZ"}
+#    listOfMCs = {"ttW":"TTW","ZZ4l":"ZZ"}
 #    listOfMCs = {"WZ3l1nu":"WZ"}
 #    listOfMCs = {"WZ3l1nu":"WZ","zPlusJetsTuneZ2Star":"Zjets"}
 #    listOfMCs = {"zPlusJets10To50Filter":"DYToLL_M10-50"}
-#    listOfMCs = {}
+ #   listOfMCs = {}
 
     #Set-up JEC corrections
     jetUnc = JetCorrectionUncertainty("scripts/Summer13_V5_MC_Uncertainty_AK5PFchs.txt")
@@ -388,8 +414,9 @@ def main():
     channelToDataset = {"eee":"DataEG","eemu":"DataMuEG","emumu":"DataMuEG","mumumu":"DataMu"}
 
     #systematics list
-    systs = ["","__trig__plus","__trig__minus","__jer__plus","__jer__minus","__jes__plus","__jes__minus","__pileup__plus","__pileup__minus","__met__plus","__met__minus","__bTag__plus","__bTag__minus","__pdf__plus","__pdf__minus"]
-
+    systs = ["","__trig__plus","__trig__minus","__jer__plus","__jer__minus","__jes__plus","__jes__minus","__pileup__plus","__pileup__minus","__met__plus","__met__minus","__bTag__plus","__bTag__minus","__pdf__plus","__pdf__minus","__zPt__plus","__zPt__minus"]
+    #Reduced syst list for testing
+#    systs = ["" ,"__bTag__plus"]
     #read what channel we're using here - changing this so that multiple things can be stored in the same file. i.e. should now be a list of channels to run over
     channels = eval(sys.argv[1])
 
@@ -402,6 +429,16 @@ def main():
     if len(sys.argv) > 3:
         outputDir = sys.argv[3]
     inputVars = setupInputVars()
+
+    useSidebandRegion = False
+    if len(sys.argv) > 4 and sys.argv[4] == "-s":
+        useSidebandRegion = True
+    treeNamePostfixSig = ""
+    treeNamePostfixSB = ""
+    if useSidebandRegion:
+        print "Using control region"
+        treeNamePostfixSig = "sig_"
+        treeNamePostfixSB = "ctrl_"
 
     #Loop over samples
     for sample in listOfMCs.keys():
@@ -419,27 +456,84 @@ def main():
 
         for syst in systs:
             #We now define the outtree out here, coz it seems like a more sensible option.
-            outTree = TTree("Ttree_"+listOfMCs[sample]+syst, "Ttree_"+listOfMCs[sample]+syst)
-            setupBranches(outTree,inputVars)
+            outTreeSig = TTree("Ttree_"+treeNamePostfixSig+listOfMCs[sample]+syst, "Ttree_"+treeNamePostfixSig+listOfMCs[sample]+syst)
+            outTreeSdBnd = 0
+            if useSidebandRegion:
+                outTreeSdBnd = TTree("Ttree_"+treeNamePostfixSB+listOfMCs[sample]+syst, "Ttree_"+treeNamePostfixSB+listOfMCs[sample]+syst)
+                setupBranches(outTreeSdBnd,inputVars)
+            setupBranches(outTreeSig,inputVars)
             for channel in channels:
                 inFile = TFile(inputDir+sample+channel+"mvaOut.root","READ")
-                if "met" in syst:
+                if "met" in syst or "zPt" in syst:
                     tree = inFile.Get("tree")
                 else:
                     tree = inFile.Get("tree"+syst)
                 print syst + ": " + str(tree.GetEntriesFast()),
                 sys.stdout.flush()
                 #Various stuff needs to be saved in the same trees. Create new one if it doesn't exist, open current one if it does            
-                fillTree(outTree, inputVars, tree, listOfMCs[sample]+syst, channel, jetUnc, overRideWeight = overrideWeight)
+                fillTree(outTreeSig, outTreeSdBnd, inputVars, tree, listOfMCs[sample]+syst, channel, jetUnc, overRideWeight = overrideWeight)
                 inFile.Close()
             outFile.cd()
             outFile.Write()
-            outTree.Write()
+            outTreeSig.Write()
+            if useSidebandRegion:
+                outTreeSdBnd.Write()
         #if tree exists just update that.
         #        if outFile.GetListOfKeys().Contains("Ttree_"+listOfMCs[sample]):
         #            outTree = outFile.Get("Ttree_"+listOfMCs[sample])
         #        else:
     #next do the data files
+        #and now grab the WZ systematics, which have to be done separately (but are required for all
+        theorySysts = {"matching":"Match","scale":"Scale"}
+        plusMinus = {"plus":"Up","minus":"Down"}
+        for pm in plusMinus.keys():
+            for syst in theorySysts.keys():
+                #if not WZ, just clone the tree we already made here.
+                if not ("WZ" in sample or ("ttZ" in sample and "scale" in syst)):
+                    outTree = outFile.Get("Ttree_"+treeNamePostfixSig+listOfMCs[sample]).Clone("Ttree_"+treeNamePostfixSig+listOfMCs[sample]+"__"+syst+"__"+pm)
+                    outTreeSB = 0
+                    if useSidebandRegion: outTreeSB = outFile.Get("Ttree_"+treeNamePostfixSB+listOfMCs[sample]).Clone("Ttree_"+treeNamePostfixSB+listOfMCs[sample]+"__"+syst+"__"+pm)
+                    outFile.cd()
+                    outTree.Write()
+                    if useSidebandRegion: outTreeSB.Write()
+                    outFile.Write()
+                    continue
+                else:
+                    outTree = TTree("Ttree_"+treeNamePostfixSig+listOfMCs[sample]+"__"+syst+"__"+pm, "Ttree_"+treeNamePostfixSig+listOfMCs[sample]+"__"+syst+"__"+pm)
+                    outTreeSB = 0
+                    if useSidebandRegion:
+                        outTreeSdBnd = TTree("Ttree_"+treeNamePostfixSB+listOfMCs[sample]+"__"+syst+"__"+pm, "Ttree_"+treeNamePostfixSB+listOfMCs[sample]+"__"+syst+"__"+pm)
+                    setupBranches(outTree,inputVars)
+                    if useSidebandRegion:
+                        setupBranches(outTreeSdBnd,inputVars)
+                    for channel in channels:
+                        inFile = TFile(inputDir+sample+theorySysts[syst]+plusMinus[pm]+channel+"mvaOut.root","READ")
+                        tree = inFile.Get("tree")
+                        print syst + "__" + pm + ": " + str(tree.GetEntriesFast()),
+                        sys.stdout.flush()
+                        fillTree(outTree,outTreeSdBnd,inputVars,tree,listOfMCs[sample]+"__"+syst+"__"+pm,channel,jetUnc)
+                        inFile.Close()
+                    outFile.cd()
+                    outFile.Write()
+                    outTree.Write()
+                    if useSidebandRegion:
+                        outTreeSdBnd.Write()
+            #Now do the tZq thing.
+        #outTree = TTree("Ttree_"+listOfMCs[sample]+"__ttZModel__"+pm, "Ttree_"+listOfMCs[sample]+"__ttZModel__"+pm)
+        #for channel in channels:
+        #    if not "ttZ" in sample:
+        #        #if not one of the samples that has the syst uncerts, 
+        #        inFile = TFile(inputDir+sample+channel+"mvaOut.root","READ")
+        #        tree = inFile.Get("tree")
+        #    else:
+        #        inFile = TFile(inputDir+"ttZModel"+channel+"mvaOut.root","READ")
+        #        tree = inFile.Get("tree")
+        #    fillTree(outTree,inputVars,tree,listOfMCs[sample]+"__ttZModel__plus",channel,jetUnc)
+        #    inFile.Close()
+        #outFile.cd()
+        #outFile.Write()
+        #outTree.Write()
+            
         outFile.Write()
         outFile.Close()
         print
@@ -453,17 +547,23 @@ def main():
 
     for outChan in outChannels:
         print "Data ",outChan
-        outTree = TTree("Ttree_"+outChan,"Ttree_"+outChan)
+        outTree = TTree("Ttree_"+treeNamePostfixSig+outChan,"Ttree_"+treeNamePostfixSig+outChan)
+        outTreeSB = 0
+        if useSidebandRegion:
+            outTreeSB = TTree("Ttree_"+treeNamePostfixSB+outChan,"Ttree_"+treeNamePostfixSB+outChan)
+            setupBranches(outTreeSB,inputVars)
         setupBranches(outTree,inputVars)
         outFile = TFile(outputDir+"histofile_"+outChan+".root","RECREATE")
         for chan in outChanToData[outChan]:
             dataChain = TChain("tree")    
             for run in ["A","B","C","D"]:
                 dataChain.Add(inputDir+chanMap[chan]+run+chan+"mvaOut.root")
-            fillTree(outTree, inputVars, dataChain, outChan, chan, 0)
+            fillTree(outTree,outTreeSB, inputVars, dataChain, outChan, chan, 0)
         outFile.cd()
         outFile.Write()
         outTree.Write()
+        if useSidebandRegion:
+            outTreeSB.Write()
         outFile.Close()
 
     zEnrichSyst = ["","__zPt__plus","__zPt__minus"]
@@ -471,9 +571,12 @@ def main():
         print "And finally z-enriched data ",outChan
         outFileZ = TFile(outputDir+"histofile_"+outChan+"Zenriched.root","RECREATE")
         for systPost in zEnrichSyst:
-            outTreeZ = TTree("Ttree_"+outChan+"Zenriched"+systPost,"Ttree_"+outChan+"Zenriched"+systPost)
+            outTreeZ = TTree("Ttree_"+treeNamePostfixSig+outChan+"Zenriched"+systPost,"Ttree_"+treeNamePostfixSig+outChan+"Zenriched"+systPost)
             setupBranches(outTreeZ,inputVars)
-            
+            outTreeZSB = 0
+            if useSidebandRegion:
+                outTreeZSB = TTree("Ttree_"+treeNamePostfixSB+outChan+"Zenriched"+systPost,"Ttree_"+treeNamePostfixSB+outChan+"Zenriched"+systPost)
+                setupBranches(outTreeZSB,inputVars)
             for chan in outChanToData[outChan]:
                 dataChainZ = TChain("tree")
                 for run in ["A","B","C","D"]:
@@ -483,11 +586,16 @@ def main():
                     zPtSyst = 1.
                 if "minus" in systPost:
                     zPtSyst = -1.
-                fillTree(outTreeZ, inputVars, dataChainZ, outChan, chan, 0, zEnrichWeights[chan],zPtEventWeight = zPtSyst)
+                fillTree(outTreeZ,outTreeZSB, inputVars, dataChainZ, outChan, chan, 0, zEnrichWeights[chan],zPtEventWeight = zPtSyst)
             outFileZ.cd()
             outFileZ.Write()
             outTreeZ.Write()
+            if useSidebandRegion:
+                outTreeZSB.Write()
         outFileZ.Close()        
+
 
 if __name__ == "__main__":
     main()
+                               
+
