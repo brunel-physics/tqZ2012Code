@@ -13,7 +13,7 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   numTightEle_(3),
   tightElePt_(20.),
   tightEleEta_(2.5),
-  tightEled0_(0.011811),
+  tightEled0_(0.04),
   tightEleMissLayers_(0),
   tightEleCheckPhotonVeto_(true),
   tightEleMVA_(0.5),
@@ -28,12 +28,12 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   numTightMu_(0),
   tightMuonPt_(20.),
   tightMuonEta_(2.4),
-  tightMuonRelIso_(0.2),
+  tightMuonRelIso_(0.12),
   //Loose muons
   numLooseMu_(0),
   looseMuonPt_(10.),
   looseMuonEta_(2.4),
-  looseMuonRelIso_(0.12),
+  looseMuonRelIso_(0.2.),
   //zMass cuts
   invZMassCut_(15.),
   //Jet initialisation
@@ -73,7 +73,7 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   getBTagWeight_(false),
   //MET and mTW cuts go here.
   metCut_(0.),
-  mTWCut_(20.),
+  mTWCut_(0.),
   TopMassCutLower_(91.),
   TopMassCutUpper_(155.)
 {
