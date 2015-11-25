@@ -13,7 +13,7 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   numTightEle_(3),
   tightElePt_(20.),
   tightEleEta_(2.5),
-  tightEled0_(0.04),
+  tightEled0_(0.011811),
   tightEleMissLayers_(0),
   tightEleCheckPhotonVeto_(true),
   tightEleMVA_(0.5),
@@ -26,14 +26,14 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   looseEleRelIso_(0.15),
   //Tight muon initialisation
   numTightMu_(0),
-  tightMuonPt_(20),
+  tightMuonPt_(20.),
   tightMuonEta_(2.4),
-  tightMuonRelIso_(0.12),
+  tightMuonRelIso_(0.2),
   //Loose muons
   numLooseMu_(0),
-  looseMuonPt_(10),
+  looseMuonPt_(10.),
   looseMuonEta_(2.4),
-  looseMuonRelIso_(0.2),
+  looseMuonRelIso_(0.12),
   //zMass cuts
   invZMassCut_(15.),
   //Jet initialisation
@@ -73,12 +73,14 @@ Cuts::Cuts(bool doPlots, bool fillCutFlows,bool invertIsoCut, bool lepCutFlow, b
   getBTagWeight_(false),
   //MET and mTW cuts go here.
   metCut_(0.),
-  mTWCut_(0.)
+  mTWCut_(20.),
+  TopMassCutLower_(91.),
+  TopMassCutUpper_(155.)
 {
   //Space here in case other stuff needs to be done.
   //If doing synchronisation., initialise that here.
   if (synchCutFlow_){
-    synchCutFlowHist_ = new TH1F("synchCutFlow","synchCutFlow",7,0,7);
+    synchCutFlowHist_ = new TH1F("synchCutFlow","synchCutFlow",9,0,9);
     synchNumEles_ = new TH1I("synchNumEles","synchNumEles",10,0,10);
     synchNumMus_ = new TH1I("synchNumMuos","synchNumMuos",10,0,10);
     synchMuonCutFlow_ = new TH1I("synchMuonCutFlow","synchMuonCutFlow",11,0,11);
@@ -305,18 +307,18 @@ std::vector<int> Cuts::getTightMuons(AnalysisEvent* event){
     //Do a little test of muon id stuff here.
     if (event->muonPF2PATChi2[i] < 0.) continue;
     if (event->muonPF2PATChi2[i]/event->muonPF2PATNDOF[i] >= 10.) continue;
-    //    if (std::abs(event->muonPF2PATDBInnerTrackD0[i]) > 0.2) continue;
+    if (std::abs(event->muonPF2PATDBInnerTrackD0[i]) > 0.2) continue;
     //if (event->muonPF2PATNChambers[i] < 2) continue;
     //if (i == 0) std::cout << "gets to tighter ";
     //if (i == 0) std::cout << "First muon ";
     //if (i > 0) std::cout << "Checking second muon";
     
-    if (event->muonPF2PATTkLysWithMeasurements[i] < 6) continue;
+    if (event->muonPF2PATTkLysWithMeasurements[i] < 5) continue;
     if (fabs(event->muonPF2PATDBPV[i]) >= 0.02) continue;
     //      if (event->muonPF2PATTrackNHits[i] < 11) continue;
-    if (event->muonPF2PATMuonNHits[i] < 1) continue;
-    if (event->muonPF2PATVldPixHits[i] < 1) continue;
-    if (event->muonPF2PATMatchedStations[i] < 2) continue;
+    if (event->muonPF2PATMuonNHits[i] <= 1) continue;
+    if (event->muonPF2PATVldPixHits[i] < 0) continue;
+    if (event->muonPF2PATMatchedStations[i] < 1) continue;
     if (std::abs(event->pvZ - event->muonPF2PATVertZ[i]) > 0.5) continue;
     //if(i == 0) std::cout << "does first ";
     //if (i > 0) std::cout << "allows second muon";
@@ -410,6 +412,37 @@ float Cuts::getZCand(AnalysisEvent *event, std::vector<int> electrons, std::vect
     }
   }
   return closestMass;
+}
+
+float Cuts::getTopMass(AnalysisEvent *event, std::vector<int> bTagIndex){
+ 
+  float topMass = ((event->wLepton).M() + getLeadingBjetMass( event, bTagIndex ) + event->metPF2PATPt);
+
+  return topMass;
+}
+
+float Cuts::getLeadingBjetMass(AnalysisEvent *event, std::vector<int> bJets){
+    
+    float leadingBjetPt = 9999.0;
+    int tempIt = 9999.0;
+    float leadingBJetMass = 9999.0;
+
+
+    for (std::vector<int>::const_iterator lIt = bJets.begin(); lIt != bJets.end(); ++lIt){
+
+     if (bJets[*lIt] < numJets_) return 9999.;
+     if (bJets[*lIt] > maxJets_) return 9999.;
+
+      if ( event->jetPF2PATPtRaw[bJets[*lIt]] < leadingBjetPt ){
+	leadingBjetPt = event->jetPF2PATPtRaw[bJets[*lIt]];
+	tempIt = *lIt;
+      }
+    }
+    
+    if ( TLorentzVector(event->jetPF2PATPx[tempIt],event->jetPF2PATPy[tempIt],event->jetPF2PATPz[tempIt],event->jetPF2PATE[tempIt]).M() < leadingBJetMass ){
+      leadingBJetMass = TLorentzVector(event->jetPF2PATPx[tempIt],event->jetPF2PATPy[tempIt],event->jetPF2PATPz[tempIt],event->jetPF2PATE[tempIt]).M();
+    }
+    return leadingBJetMass;
 }
 
 std::vector<int> Cuts::makeJetCuts(AnalysisEvent *event, int syst, float * eventWeight){
@@ -510,23 +543,35 @@ void Cuts::setTightEle(float,float,float)
 
 //This is only called if the thing is data. There's also a little clause to run over certain triggers if they exist. Because I failed miserably to get them all first time through processing...
 bool Cuts::triggerCuts(AnalysisEvent* event){
-  //MuEG triggers 
+
   if (skipTrigger_) return true;
+
+  //MuEG triggers
   bool muEGTrig = false;
-  if (event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v4 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v5 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9 > 0  || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v1 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v2 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v3 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v4 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v5 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8 > 0 || event->HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9 > 0) muEGTrig = true;
-  //if (event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v4 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v5 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v6 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v7 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v8 > 0 || event->HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v9 > 0) muEGTrig = true;
-  //else if (cutConfTrigLabel_.find("d") != std::string::npos) muEGTrig = true;
+  if (!isMC_) {if ( event->HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v2 > 0 || event->HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_v2 > 0 || event->HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v3 > 0 || event->HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_v3 > 0 ) muEGTrig = true;}
+  else if ( event->HLT_Mu17_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v1 > 0 || event->HLT_Mu8_TrkIsoVVL_Ele17_CaloIdL_TrackIdL_IsoVL_v1 > 0 ){
+    muEGTrig = true;
+    //    std::cout << "muEGTrig for MC fired." << std::endl;
+  }
+
   //double electron triggers
   bool eeTrig = false;
-  if (event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v15 > 0 || event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v16 > 0 || event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v17 > 0 || event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v18 ==1 || event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v19 > 0) eeTrig = true;
-  //  else if (event->HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v11 > 0) eeTrig = true;
+  //  std::cout << "event->HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v1 : " << event->HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v1 << std::endl;
+  if (!isMC_) {if ( event->HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v2 > 0 || event->HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v3 > 0 ) eeTrig = true;}
+  else if ( event->HLT_Ele17_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v1 > 0 ) {
+    eeTrig = true;
+    //    std::cout << "eeTrig for MC fired." << std::endl;   
+  }
 
   //double muon triggers
   bool mumuTrig = false;
-  if (!isMC_) {if (event->HLT_Mu17_TkMu8_v6 > 0 || event->HLT_Mu17_TkMu8_v7 > 0 || event->HLT_Mu17_TkMu8_v8 > 0 || event->HLT_Mu17_TkMu8_v9 > 0 || event->HLT_Mu17_TkMu8_v10 > 0 || event->HLT_Mu17_TkMu8_v11 > 0 || event->HLT_Mu17_TkMu8_v12 > 0 || event->HLT_Mu17_TkMu8_v13 > 0 || event->HLT_Mu17_TkMu8_v14 > 0 || event->HLT_Mu17_Mu8_v13 > 0 || event->HLT_Mu17_Mu8_v14 > 0 || event->HLT_Mu17_Mu8_v15 > 0 || event->HLT_Mu17_Mu8_v16 > 0 || event->HLT_Mu17_Mu8_v17 > 0 || event->HLT_Mu17_Mu8_v18 > 0 || event->HLT_Mu17_Mu8_v19 > 0 || event->HLT_Mu17_Mu8_v20 > 0 || event->HLT_Mu17_Mu8_v21 > 0 || event->HLT_Mu17_Mu8_v22 > 0) mumuTrig = true;}
-  //if (!isMC_) {if (event->HLT_Mu17_TkMu8_v14 > 0 || event->HLT_Mu17_Mu8_v13 > 0 || event->HLT_Mu17_Mu8_v14 > 0 || event->HLT_Mu17_Mu8_v15 > 0 || event->HLT_Mu17_Mu8_v16 > 0 || event->HLT_Mu17_Mu8_v17 > 0 || event->HLT_Mu17_Mu8_v18 > 0 || event->HLT_Mu17_Mu8_v19 > 0 || event->HLT_Mu17_Mu8_v20 > 0 || event->HLT_Mu17_Mu8_v21 > 0 || event->HLT_Mu17_Mu8_v22 > 0) mumuTrig = true;}
-  else if (event->HLT_Mu17_Mu8_v12 > 0 || event->HLT_Mu17_TkMu8_v5 > 0) mumuTrig = true;
-  
+  if (!isMC_) {if ( event->HLT_IsoMu20_v2  > 0 || event->HLT_IsoMu20_eta2p1_v2 > 0 || event->HLT_IsoMu18_v1 > 0 ) mumuTrig = true;}
+
+  else if (event->HLT_IsoMu20_v1 > 0 || event->HLT_IsoMu20_eta2p1_v1 > 0){
+    mumuTrig = true;
+    //    std::cout << "mumuTrig for MC fired." << std::endl;  
+  }
+
   if (cutConfTrigLabel_.find("d") != std::string::npos){if (muEGTrig) return true;}
   if (cutConfTrigLabel_.find("e") != std::string::npos){if (eeTrig && !(muEGTrig || mumuTrig)) return true;}
   if (cutConfTrigLabel_.find("m") != std::string::npos){if (mumuTrig && !(eeTrig || muEGTrig)) return true;}
@@ -544,7 +589,7 @@ bool Cuts::synchCuts(AnalysisEvent* event){
   int looseLeps = getLooseLepsNum(event);
   if (isMC_ && looseLeps < 2) return false;
   if (!isMC_ && looseLeps < 3) return false;
-  if (!isMC_ && !triggerCuts(event)) return false;
+  if (/*!isMC_ &&*/ !triggerCuts(event)) return false; // Commented out this so that it runs on both MC and data.
   synchCutFlowHist_->Fill(0.5);
   if (makeEventDump_) {step0EventDump_ << event->eventNum << std::endl;}
   
@@ -598,12 +643,18 @@ bool Cuts::synchCuts(AnalysisEvent* event){
   //  std::cout << event->jetIndex.size() << std::endl;
   synchCutFlowHist_->Fill(4.5);
   event->bTagIndex = makeBCuts(event,event->jetIndex);
-  if (singleEventInfoDump_) std::cout << "Number of bJets: " << event->bTagIndex.size() << std::endl;
-  if (event->bTagIndex.size() < 1) return false;
+  if (singleEventInfoDump_) std::cout << "One bJet: " << event->bTagIndex.size() << std::endl;
+  if (!event->bTagIndex.size() == 1) return false;
   synchCutFlowHist_->Fill(5.5);
   if (singleEventInfoDump_) std::cout << "MET: " << event->metPF2PATPt << std::endl;
-  if (event->metPF2PATPt < 20.) return false;
+  if (event->metPF2PATPt < metCut_) return false;
   synchCutFlowHist_->Fill(6.5);
+  if (singleEventInfoDump_) std::cout << "mTW: " << event->metPF2PATPt << std::endl;
+  if (std::sqrt(2*event->metPF2PATPt*event->wLepton.Pt()*(1-cos(event->metPF2PATPhi - event->wLepton.Phi()))) < mTWCut_) return false;
+  synchCutFlowHist_->Fill(7.5);
+  if (singleEventInfoDump_) std::cout << "top mass cut: " << getTopMass(event, event->jetIndex)  << std::endl;
+  if (getTopMass(event, event->jetIndex) > TopMassCutUpper_ || getTopMass(event, event->jetIndex) < TopMassCutLower_) return false;
+  synchCutFlowHist_->Fill(8.5);
   if (singleEventInfoDump_) std::cout << "Passes all cuts! Yay!" << std::endl;
   if (makeEventDump_){
     dumpToFile(event,6);
@@ -614,8 +665,8 @@ bool Cuts::synchCuts(AnalysisEvent* event){
 
 TH1F* Cuts::getSynchCutFlow(){
   std::cout << "Eles: " << numTightEle_ << " Muons: " << numTightMu_ << std::endl;
-  char const *names[] = {"Trigger","Lep Pair", "3 Leptons", "zMass","1 jet","b-tag","MET"};
-  for (unsigned int i = 1; i < 8; ++i){
+  char const *names[] = {"Trigger","Lep Pair", "3 Leptons", "zMass","1 jet","1 b-tag","MET","mTW", "topMass"};
+  for (unsigned int i = 1; i < 10; ++i){
     std::cout << names[i-1] << ": " << synchCutFlowHist_->GetBinContent(i) << std::endl;
   }
   std::cout << "The number of leptons in the passing trigger events:" << std::endl;
@@ -794,17 +845,17 @@ std::vector<int> Cuts::synchTightMuons(AnalysisEvent* event){
     //if (i == 0) std::cout << "First muon ";
     //if (i > 0) std::cout << "Checking second muon";
     //      std::cout << event->muonPF2PATTkLysWithMeasurements[i] << "\t" << event->muonPF2PATDBPV[i] << "\t" << event->muonPF2PATTrackNHits[i] << "\t" << event->muonPF2PATMuonNHits[i] << "\t" << event->muonPF2PATVldPixHits[i] << "\t" << event->muonPF2PATMatchedStations[i] << "\t" << std::abs(event->pvZ - event->muonPF2PATVertZ[i]) << std::endl;
-    if (event->muonPF2PATTkLysWithMeasurements[i] < 6) continue;
+    if (event->muonPF2PATTkLysWithMeasurements[i] < 5 ) continue;
     synchMuonCutFlow_->Fill(4.5);
     if (event->muonPF2PATDBPV[i] > 0.02) continue;
     synchMuonCutFlow_->Fill(5.5);
     if (event->muonPF2PATTrackNHits[i] < 11) continue;
     synchMuonCutFlow_->Fill(6.5);
-    if (event->muonPF2PATMuonNHits[i] < 1) continue;
+    if (event->muonPF2PATMuonNHits[i] <= 1) continue;
     synchMuonCutFlow_->Fill(7.5);
-    if (event->muonPF2PATVldPixHits[i] < 1) continue;
+    if (event->muonPF2PATVldPixHits[i] < 0) continue;
     synchMuonCutFlow_->Fill(8.5);
-    if (event->muonPF2PATMatchedStations[i] < 2) continue;
+    if (event->muonPF2PATMatchedStations[i] < 1) continue;
     synchMuonCutFlow_->Fill(9.5);
     if (std::abs(event->pvZ - event->muonPF2PATVertZ[i]) > 0.5) continue;
     synchMuonCutFlow_->Fill(10.5);
