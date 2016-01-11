@@ -9,6 +9,7 @@
 #include <fstream>
 #include "TLorentzVector.h"
 
+
 class Cuts{
   bool makeLeptonCuts(AnalysisEvent*,float*,std::map<std::string,Plots*>, TH1F*);
   bool invertIsoCut(AnalysisEvent*,float*,std::map<std::string,Plots*>, TH1F*);
@@ -24,6 +25,8 @@ class Cuts{
   std::vector<int> getInvIsoMuons(AnalysisEvent* event);
   std::vector<int> getLooseMuons(AnalysisEvent* event);
   float getZCand(AnalysisEvent*, std::vector<int>, std::vector<int>);
+  float getTopMass(AnalysisEvent*, std::vector<int>);
+  float getLeadingBjetMass(AnalysisEvent*, std::vector<int>);
   bool triggerCuts(AnalysisEvent*);
   
   //Method for running the synchronisation with Jeremy.
@@ -111,11 +114,13 @@ class Cuts{
   TH1I* synchNumEles_;
   TH1I* synchNumMus_;
   TH1I* synchMuonCutFlow_;
+  TH1F* synchCutTopMassHist_;
+
   bool makeEventDump_;
-  ofstream step0EventDump_;
-  ofstream step2EventDump_;
-  ofstream step4EventDump_;
-  ofstream step6EventDump_;
+  std::ofstream step0EventDump_;
+  std::ofstream step2EventDump_;
+  std::ofstream step4EventDump_;
+  std::ofstream step6EventDump_;
   //Sets whether to do MC or data cuts. Set every time a new dataset is processed in the main loop.
   bool isMC_;
   std::string triggerFlag_;
@@ -140,11 +145,15 @@ class Cuts{
   float metCut_;
   float mTWCut_;
 
+  // top mass cut values
+  float TopMassCutLower_;
+  float TopMassCutUpper_;
+
   //Sets trigger from config file
   std::string cutConfTrigLabel_;
 
  public:
-  Cuts(bool,bool,bool,bool,bool);
+  Cuts(bool doPlots,bool fillCutFlows,bool invertIsoCut,bool lepCutFlow, bool dumpEventNumber);
   ~Cuts();
   bool makeCuts(AnalysisEvent*,float*,std::map<std::string,Plots*>, TH1F*,int);
   void setTightEle(float pt = 20, float eta = 2.5, float d0 = 0.04);
@@ -165,6 +174,8 @@ class Cuts{
   TH1F* getSynchCutFlow();
   int numFound(){return synchCutFlowHist_->GetBinContent(4);};
   void setEventInfoFlag(bool flag){singleEventInfoDump_ = flag;};
+
 };
 
 #endif
+
