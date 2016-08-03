@@ -1,2 +1,6 @@
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${PWD}/lib:/home/eepgadm/lib/local/lib/"
-export LHAPATH="/cms/cmssw/slc6_amd64_gcc472/external/lhapdf/5.9.1/share/lhapdf/PDFsets/"
+export LHAPATH=/cvmfs/cms.cern.ch/lhapdf/pdfsets/6.1.6/
+source /opt/rh/devtoolset-3/enable
+source /opt/rh/git19/enable
+source /opt/rh/python27/enable
+export X_SCLS='devtoolset-3 git19 python27'
+
