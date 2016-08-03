@@ -6,47 +6,38 @@ EXECUTABLE_SOURCES = $(wildcard src/common/*.cxx)
 EXECUTABLE_OBJECT_FILES = $(patsubst src/common/%.cxx,obj/%.o,${EXECUTABLE_SOURCES})
 EXECUTABLES = $(patsubst src/common/%.cxx,bin/%.exe,${EXECUTABLE_SOURCES})
 
-LIBRARY_PATH = 	-L/home/eepgadm/root/lib \
-		-Llib \
-		-L/home/eepgadm/lib/local/lib\
+LIBRARY_PATH =  -L$(shell root-config --libdir) \
+                -L/scratch/shared/lib \
+                -L/usr/lib64/boost148 \
+                -Llib \
 
-LIBRARIES = 	-lCore \
-		-lCint  \
-		-lRIO  \
-		-lNet  \
-		-lHist  \
-		-lGraf  \
-		-lGraf3d  \
-		-lGpad  \
-		-lTMVA  \
-		-lTree  \
-		-lRint  \
-		-lPostscript  \
-		-lMatrix  \
-		-lPhysics  \
-		-lMathCore  \
-		-lThread  \
-		-pthread  \
-		-lm  \
-		-ldl \
-		-lconfig++ \
-		-lLHAPDF \
-		-lz \
+LIBRARIES =     $(shell root-config --libs) \
+                -lLHAPDF \
+                -lTMVA  \
+                -lconfig++ \
+                -lz \
+                -lboost_system-mt \
+                -lboost_filesystem-mt \
 
-INCLUDE_PATH = 	-Iinclude  \
-		-I/home/eepgadm/root/include \
-		-I/usr/include \
-		-I/home/eepgadm/lib/local/include
+INCLUDE_PATH =  -Iinclude  \
+                -isystem/scratch/shared/include \
+                -isystem/usr/include/boost148 \
+                -I/usr/include \
+                -isystem$(shell root-config --incdir) \
 
-CFLAGS = -g -O2 -pipe -Wall -W -Woverloaded-virtual -MMD -MP -fPIC -pthread -std=c++0x $(shell root-config --cflags) ${INCLUDE_PATH}
+CFLAGS = -std=c++14 -march=native -mtune=native -g -O2 -pipe -Wall -Wextra \
+         -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wformat=2 -Winit-self \
+         -Wlogical-op -Wmissing-include-dirs -Wnoexcept -Wold-style-cast \
+         -Woverloaded-virtual -Wredundant-decls -Wshadow \
+         -Wstrict-null-sentinel -Wuseless-cast -Wzero-as-null-pointer-constant \
+         -pedantic -MMD -MP -m64 -fPIC -pthread -fdiagnostics-color=auto \
+         ${INCLUDE_PATH}
 
-LHAP = -I/cms/cmssw/slc6_amd64_gcc472/external/lhapdf/5.9.1-cms/full/include -L/cms/cmssw/slc6_amd64_gcc472/external/lhapdf/5.9.1-cms/full/lib -lLHAPDF
-#LHAPDFLAGS = -I$(shell cd ${CMSSW_BASE}; scram tool tag lhapdffull INCLUDE) -L$(shell cd ${CMSSW_BASE}; scram tool tag lhapdffull LIBDIR) -lLHAPDF -lgfortran -lz
+LINK_LIBRARY_FLAGS = -shared -g -O2 -rdynamic ${LIBRARY_PATH} ${LIBRARIES}
+LINK_EXECUTABLE_FLAGS = -g -O2 -rdynamic ${LIBRARY_PATH} ${LIBRARIES} \
+                        -lTQZanalysisTools \
+                        -Wl,-R/scratch/shared/lib,-Rlib,--enable-new-dtags
 
-ROOTSYS = /home/eepgadm/root/
-
-LINK_LIBRARY_FLAGS = -shared -Wall -g -O0 -rdynamic ${LIBRARY_PATH} ${LIBRARIES}
-LINK_EXECUTABLE_FLAGS = -Wall -g -O0 -rdynamic ${LIBRARY_PATH} ${LIBRARIES} -lTQZanalysisTools
 
 .PHONY: all _all clean _cleanall build _buildall install _installall rpm _rpmall test _testall spec_update
 
